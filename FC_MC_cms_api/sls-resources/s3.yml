@@ -1,0 +1,40 @@
+Resources:
+  cmsAssetsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      CorsConfiguration:
+        CorsRules:
+            - AllowedMethods:
+                - GET
+              AllowedOrigins:
+                - '*'
+
+  cmsAssetBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref cmsAssetsBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Action:
+              - 's3:GetObject'
+            Effect: Allow
+            Resource:
+              - !Join
+                - ''
+                - - 'arn:aws:s3:::'
+                  - !Ref cmsAssetsBucket
+                  - /*/*/*thumbnail.*
+              - !Join
+                - ''
+                - - 'arn:aws:s3:::'
+                  - !Ref cmsAssetsBucket
+                  - /npvr/*
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Condition:
+              StringEquals:
+                'AWS:SourceArn': !Sub
+                  - 'arn:aws:cloudfront::${AccountId}:distribution/${DistributionId}'
+                  - AccountId: !Ref AWS::AccountId
+                    DistributionId: !GetAtt vodDistribution.Id

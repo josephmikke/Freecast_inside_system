@@ -1,0 +1,40 @@
+addProvider:
+  handler: routes/provider/addProvider/index.default
+  events:
+    - http:
+        path: 'providers'
+        cors: true
+        method: post
+        private: true
+getProviders:
+  handler: routes/provider/getProviders/index.default
+  events:
+    - http:
+        path: 'providers'
+        cors: true
+        method: get
+        private: true
+updateProvider:
+  handler: routes/provider/updateProvider/index.default
+  events:
+    - http:
+        path: 'providers/{id}'
+        cors: true
+        method: patch
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+deleteProvider:
+  handler: routes/provider/deleteProvider/index.default
+  events:
+    - http:
+        path: 'providers/{id}'
+        cors: true
+        method: delete
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true

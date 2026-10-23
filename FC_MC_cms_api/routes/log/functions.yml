@@ -1,0 +1,21 @@
+logHandler:
+  handler: routes/log/logHandler/index.default
+  events:
+    - http:
+        path: 'logs'
+        cors: true
+        method: post
+        private: true
+getLogs:
+  handler: routes/log/getLogs/index.default
+  events:
+    - http:
+        path: 'logs'
+        cors: true
+        method: get
+        private: true
+        request:
+          parameters:
+            querystrings:
+              limit: false
+              nextToken: false

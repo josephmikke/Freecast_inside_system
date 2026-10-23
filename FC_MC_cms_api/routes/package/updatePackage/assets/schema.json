@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "extId": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "INTERNAL",
+            "EXTERNAL"
+          ]
+        },
+        "revenueModel": {
+          "enum": [
+            "PAID",
+            "FREE"
+          ]
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "platforms": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
+

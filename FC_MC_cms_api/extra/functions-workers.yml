@@ -1,0 +1,143 @@
+# Scheduled / event-driven workers (deployed via serverless-workers.yml).
+girlyFlixAdSchedule:
+  name: ${self:custom.cmsApiService}-${sls:stage}-girly-flix-ad-schedule
+  handler: extra/girlyFlixAdSchedule/index.default
+  timeout: 300
+  events:
+    - schedule:
+        rate: cron(14 */1 * * ? *)
+        enabled: true
+  environment:
+    AD_SCHEDULE_CDN_DOMAIN: d398z0s4ibmzlz.cloudfront.net
+    GIRLY_FLIX_CUEPOINT_KEY: Girly-Flix/Girly-Flix-Channel.JSON
+    GIRLY_FLIX_CHANNEL_ID: "6938057"
+
+manAdSchedule:
+  name: ${self:custom.cmsApiService}-${sls:stage}-man-ad-schedule
+  handler: extra/manAdSchedule/index.default
+  timeout: 300
+  events:
+    - schedule:
+        rate: cron(14 */1 * * ? *)
+        enabled: true
+  environment:
+    AD_SCHEDULE_CDN_DOMAIN: d398z0s4ibmzlz.cloudfront.net
+    MAN_CUEPOINT_KEY: Man/Man-channel.JSON
+    MAN_CHANNEL_ID: "2097759"
+
+generateEpgAdSchedules:
+  name: ${self:custom.cmsApiService}-${sls:stage}-generate-epg-ad-schedules
+  handler: extra/generateEpgAdSchedules/index.default
+  timeout: 900
+  events:
+    - schedule:
+        rate: cron(0 0 */1 * ? *)
+        enabled: true
+  environment:
+    EPG_DURATION_HOURS: "48"
+    GENERATE_JSON: "true"
+    GENERATE_XML: "true"
+    EPG_ASSETS_CDN_DOMAIN: ${self:custom.epgAssetsCdnDomain.${sls:stage}, 'd2d6fj119jntet.cloudfront.net'}
+    EPG_UPLOAD_CDN_DOMAIN: d398z0s4ibmzlz.cloudfront.net
+    S3_PREFIX: ""
+
+cdn4xx5xxAlerts:
+  name: ${self:custom.cmsApiService}-${sls:stage}-cdn-4xx-5xx-alerts
+  handler: extra/cdn4xx5xxAlerts/index.default
+  timeout: 30
+  events:
+    - sns:
+        arn: arn:aws:sns:us-east-1:199718138082:CDN-4xx-5xx-alert
+  environment:
+    # Per-DistributionId Slack alert cooldown (seconds). Matches the alarm's
+    # 10-min re-evaluation window; bump above 600 if boundary jitter lets the
+    # next window's re-alarm slip through. State is stored in the cms-log table.
+    ALERT_COOLDOWN_SECONDS: "600"
+
+reelzMrssIngest:
+  name: ${self:custom.cmsApiService}-${sls:stage}-reelz-mrss-ingest
+  handler: extra/reelzMrssIngest/index.default
+  timeout: 300
+  events:
+    - schedule:
+        rate: cron(0 0 * * ? *)
+        enabled: true
+  environment:
+    REELZ_MRSS_URL: https://reelz-mrss.s3.amazonaws.com/Reelz_MRSS_Freecast.xml
+    REELZ_PROVIDER_NAME: Reelz
+    REELZ_PACKAGE_NAME: Value Channels
+
+curiosityMrssIngest:
+  name: ${self:custom.cmsApiService}-${sls:stage}-curiosity-mrss-ingest
+  handler: extra/curiosityMrssIngest/index.default
+  timeout: 300
+  events:
+    - schedule:
+        rate: cron(0 0 ? * FRI *)
+        enabled: true
+  environment:
+    CURIOSITY_MRSS_URL: https://cdn.curiositystream.com/universalsearch/freecast/cbe5306f-0ab3-4588-9f8f-4871fd78f49e/feed.xml
+    CURIOSITY_PROVIDER_NAME: Curiosity Stream
+    CURIOSITY_PACKAGE_NAME: Curiosity Stream
+
+sonyMrssIngest:
+  name: ${self:custom.cmsApiService}-${sls:stage}-sony-mrss-ingest
+  handler: extra/sonyMrssIngest/index.default
+  timeout: 900
+  events:
+    - schedule:
+        rate: cron(0 0 28 * ? *)
+        enabled: true
+  environment:
+    SONY_BUCKET: sony-freecast
+    SONY_OUTPUT_PREFIX: Sony
+    SONY_CDN_DOMAIN: d398z0s4ibmzlz.cloudfront.net
+    SONY_PROVIDER_NAME: Sony Movies
+    SONY_PACKAGE_NAME: Value Channels
+    SONY_PROVIDER_ID: 995eef31520dce96
+    SONY_CLEANUP_ENABLED: 'true'
+    SONY_CLEANUP_DRY_RUN: 'false'
+    SONY_CLEANUP_KEEP_FUTURE: 'true'
+    SONY_CLEANUP_KEEP_MONTHS: '1'
+    SONY_CLEANUP_MAX_FOLDERS: '200'
+    SONY_CLEANUP_MAX_DELETE_RATIO: '0.5'
+    SONY_CLEANUP_PURGE_VERSIONS: 'false'
+
+mediaConnectStatusPush:
+  name: ${self:custom.cmsApiService}-${sls:stage}-media-connect-status-push
+  handler: extra/mediaConnectStatusPush/index.handler
+  timeout: 300
+  events:
+    - eventBridge:
+        name: ${self:custom.cmsApiService}-${sls:stage}-mediaconnect-source-health-disconnect
+        description: MediaConnect flow source health transition CONNECTED → DISCONNECTED
+        pattern:
+          source:
+            - aws.mediaconnect
+          detail-type:
+            - MediaConnect Source Health
+          detail:
+            current:
+              state:
+                - DISCONNECTED
+            previous:
+              state:
+                - CONNECTED
+    - eventBridge:
+        name: ${self:custom.cmsApiService}-${sls:stage}-mediaconnect-source-health-connect
+        description: MediaConnect flow source health transition DISCONNECTED → CONNECTED
+        pattern:
+          source:
+            - aws.mediaconnect
+          detail-type:
+            - MediaConnect Source Health
+          detail:
+            current:
+              state:
+                - CONNECTED
+            previous:
+              state:
+                - DISCONNECTED
+  environment:
+    TABLE_NAME: "cms-log"
+    DEBOUNCE_DELAY_SECONDS: "180"

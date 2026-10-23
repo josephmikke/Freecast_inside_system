@@ -1,0 +1,149 @@
+service: cms-api
+
+
+# Disable Serverless Dashboard
+org: null
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: freecast-cms
+
+build:
+  esbuild: false
+
+provider:
+  name: aws
+  runtime: nodejs22.x
+  region: us-east-1
+  logRetentionInDays: 3
+  memorySize: 1024
+  timeout: 30
+  apiGateway:
+    description: CMS REST API
+    apiKeys:
+      - ${sls:stage}-cms
+  tracing:
+    apiGateway: true
+    lambda: true
+  stackTags:
+    project: freecast-infra
+  environment:
+    ${file(sls-resources/environment.yml)}
+  iam:
+    ${file(sls-resources/iam.yml):iam}
+#TODO: move this in a env file
+params:
+  test:
+    spekeUrl: 'https://wywyla27ma.execute-api.us-east-1.amazonaws.com/prod'
+    spekeRoleArn: 'arn:aws:iam::199718138082:role/live-pipeline-prod-MediaPackageInvokeApiRole-APY7IZHJWBX2'
+    wafArn: 'arn:aws:wafv2:us-east-1:199718138082:global/webacl/prod-DistributionACL/dfc706c0-1be2-457d-8fc4-e8a0fb8679f1'
+  prod:
+    spekeUrl: 'https://wywyla27ma.execute-api.us-east-1.amazonaws.com/prod'
+    spekeRoleArn: 'arn:aws:iam::199718138082:role/live-pipeline-prod-MediaPackageInvokeApiRole-APY7IZHJWBX2'
+    wafArn: 'arn:aws:wafv2:us-east-1:199718138082:global/webacl/prod-DistributionACL/dfc706c0-1be2-457d-8fc4-e8a0fb8679f1'
+  dev:
+    spekeUrl: 'https://wywyla27ma.execute-api.us-east-1.amazonaws.com/prod'
+    spekeRoleArn: 'arn:aws:iam::199718138082:role/live-pipeline-prod-MediaPackageInvokeApiRole-APY7IZHJWBX2'
+    wafArn: 'arn:aws:wafv2:us-east-1:199718138082:global/webacl/prod-DistributionACL/dfc706c0-1be2-457d-8fc4-e8a0fb8679f1'
+  qa:
+    spekeUrl: 'https://wywyla27ma.execute-api.us-east-1.amazonaws.com/prod'
+    spekeRoleArn: 'arn:aws:iam::199718138082:role/live-pipeline-prod-MediaPackageInvokeApiRole-APY7IZHJWBX2'
+    wafArn: 'arn:aws:wafv2:us-east-1:199718138082:global/webacl/prod-DistributionACL/dfc706c0-1be2-457d-8fc4-e8a0fb8679f1'    
+
+plugins:
+  - serverless-esbuild
+  - serverless-prune-plugin
+  - serverless-step-functions
+  - serverless-plugin-split-stacks
+custom:
+  deploy-time: ${file(routes/shared/GetTime.js)}
+  epgAssetsCdnDomain:
+    test: d2d6fj119jntet.cloudfront.net
+    prod: dys9kbv5982ld.cloudfront.net
+  prune:
+    automatic: true
+    number: 3
+  esbuild:
+    bundle: true
+    minify: false
+    sourcemap: true
+    packager: npm
+    platform: node
+    target: node20
+    external:
+      - jsonpath
+      - '@aws-sdk/types'
+      - '@aws-sdk/client-lambda'
+      - '@aws-sdk/client-scheduler'
+      - '@aws-sdk/client-dynamodb'
+      - '@aws-sdk/client-mediapackage'
+      - '@aws-sdk/client-mediapackage-vod'
+      - '@aws-sdk/client-mediatailor'
+      - '@aws-sdk/client-s3'
+      - '@aws-sdk/lib-dynamodb'
+      - '@aws-sdk/client-cloudfront'
+      - '@aws-sdk/client-api-gateway'
+      - '@aws-sdk/client-eventbridge'
+      - '@aws-sdk/client-mediaconvert'
+      - '@aws-sdk/client-sfn'
+      - '@aws-sdk/client-wafv2'
+      - '@aws-sdk/client-medialive'
+      - '@aws-sdk/client-sns'
+      - '@aws-sdk/node-http-handler'
+      - '@swim/time'
+      - cron-validate
+      - cross-fetch
+      - fontoxpath
+      - luxon
+      - papaparse
+      - xmldom
+  splitStacks:
+    perFunction: false
+    perType: true
+    perGroupFunction: false
+  cmsApiService: cms-api
+
+
+layers:
+  powertools:
+    path: layers/powertools
+    name: powertools-${sls:stage}
+    description: Lambda layer that includes AWS Lambda Powertools for TypeScript and Middy
+
+# API Lambda functions
+package:
+  individually: true
+
+functions:
+  - ${file(routes/category/functions.yml)}
+  - ${file(routes/genre/functions.yml)}
+  - ${file(routes/provider/functions.yml)}
+  - ${file(routes/platform/functions.yml)}
+  - ${file(routes/package/functions.yml)}
+  - ${file(routes/autoingestion/functions.yml)}
+  - ${file(routes/epgTemplate/functions.yml)}
+  - ${file(routes/location/functions.yml)}
+  - ${file(routes/epg/functions.yml)}
+  - ${file(routes/channel/functions.yml)}
+  - ${file(routes/npvr/functions.yml)}
+  - ${file(extra/functions-main.yml)}
+  - ${file(routes/apiKey/functions.yml)}
+  - ${file(routes/vod/functions.yml)}
+  - ${file(routes/vod/movie/functions.yml)}
+  - ${file(routes/vod/series/functions.yml)}
+  - ${file(routes/vod/episode/functions.yml)}
+  - ${file(routes/vod/ingestion/functions.yml)}
+  - ${file(routes/geoip/functions.yml)}
+  - ${file(routes/log/functions.yml)}
+  - ${file(routes/monitor/functions.yml)}
+stepFunctions:
+  stateMachines:
+    ${file(sls-resources/state-machine.yml)}
+
+resources:
+  - ${file(sls-resources/iam.yml):resources}
+  - ${file(sls-resources/cognito.yml)}
+  - ${file(sls-resources/s3.yml)}
+  - ${file(sls-resources/dynamodb.yml)}
+  - ${file(sls-resources/mediapackage-vod.yml)}
+  - ${file(sls-resources/mediatailor-vod.yml)}
+  - ${file(sls-resources/distribution.yml)}
+  - ${file(sls-resources/secret-manager.yml)}

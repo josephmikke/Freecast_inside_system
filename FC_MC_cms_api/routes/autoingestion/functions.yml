@@ -1,0 +1,55 @@
+addAutoIngestion:
+  handler: routes/autoingestion/addAutoIngestion/index.default
+  events:
+    - http:
+        path: 'autoingestions'
+        cors: true
+        method: post
+        private: true
+getAutoIngestions:
+  handler: routes/autoingestion/getAutoIngestions/index.default
+  events:
+    - http:
+        path: 'autoingestions'
+        cors: true
+        method: get
+        private: true
+getAutoIngestion:
+  handler: routes/autoingestion/getAutoIngestion/index.default
+  events:
+    - http:
+        path: 'autoingestions/{id}'
+        cors: true
+        method: get
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+updateAutoIngestion:
+  handler: routes/autoingestion/updateAutoIngestion/index.default
+  events:
+    - http:
+        path: 'autoingestions/{id}'
+        cors: true
+        method: patch
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+deleteAutoIngestion:
+  handler: routes/autoingestion/deleteAutoIngestion/index.default
+  events:
+    - http:
+        path: 'autoingestions/{id}'
+        cors: true
+        method: delete
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+autoIngestionScheduleHandler:
+  handler: routes/autoingestion/scheduleHandler/index.default
+  timeout: 300

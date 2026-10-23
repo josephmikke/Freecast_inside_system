@@ -1,0 +1,55 @@
+ingestVod:
+  handler: routes/vod/ingestVod/index.default
+  timeout: 900
+  memorySize: 10240
+#  vpc:
+#    securityGroupIds:
+#      - sg-080ef483a5a4a0157
+#    subnetIds:
+#      - subnet-09ebd4932392a9697
+#      - subnet-0ca6a4b7d2ce00b7d
+#      - subnet-07d6bcea4b0f976e7
+mediaTailorCustomResourceFn:
+  handler: routes/vod/MediaTailorCustomResource.handler
+  timeout: 300
+  memorySize: 512
+startIngestVod:
+  handler: routes/vod/startIngestVod/index.default
+  events:
+    - http:
+        path: 'vod/ingest'
+        cors: true
+        method: post
+        private: true
+handleIngestedVod:
+  handler: routes/vod/handleIngestedVod/index.default
+  timeout: 600
+  events:
+    - eventBridge:
+        pattern:
+          source:
+            - aws.mediaconvert
+          detail-type:
+            - MediaConvert Job State Change
+          detail:
+            status:
+              - PROGRESSING
+              - COMPLETE
+              - ERROR
+              - CANCELED
+handleAssetCreationVod:
+  handler: routes/vod/handleAssetCreationVod/index.default
+  timeout: 600
+  events:
+    - eventBridge:
+        pattern:
+          source:
+            - aws.mediapackage
+          detail-type:
+            - MediaPackage Input Notification
+          detail:
+            event:
+              - VodAssetPlayable
+              - IngestStart
+              - IngestError
+              - IngestComplete

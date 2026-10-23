@@ -1,0 +1,57 @@
+{
+  "env": {
+    "commonjs": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb",
+    "airbnb-typescript"
+  ],
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "project": [
+      "./tsconfig.json"
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "eslint-import-resolver-custom-alias": {
+        "alias": {
+          "@": "./src",
+          "@api": "./src/api",
+          "@assets": "./src/assets",
+          "@components": "./src/components",
+          "@pages": "./src/pages",
+          "@utils": "./src/utils",
+          "@entities": "./src/domain/entities"
+        },
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      },
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "overrides": [
+    {
+      "rules": {
+        "react/require-default-props": "off",
+        "react/jsx-props-no-spreading": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "react/no-unstable-nested-components": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/no-static-element-interactions": "off"
+      },
+      "files": "*.tsx"
+    }
+  ]
+}

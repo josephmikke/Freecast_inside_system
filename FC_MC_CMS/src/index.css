@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: theme('colors.gray-dark');
+  color: theme('colors.white');
+  font-family: theme('fontFamily.sans');
+  font-size: theme('fontSize.base');
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme('colors.gray');
+  border-radius: 5px;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 20px;
+  width: 100%;
+}
+
+th {
+  border-style: solid none;
+  padding: 10px;
+}
+
+td {
+  border-style: solid none;
+  padding: 10px;
+}
+
+tr {
+  background-color: theme('colors.gray');
+  padding-left: 20px;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 25px;
+}
+
+.form_field_group {
+  width: 30%;
+  min-width: 350px;
+                }
+
+.form_field_group > * {
+  display: block;
+}
+
+.form_field_group input,
+.form_field_group textarea {
+  background-color: theme("colors.gray");
+  color: theme("colors.white");
+  padding: 10px 20px;
+  @apply rounded-xl;
+  width: 100%;
+}
+
+.form_field_group input.invalid {
+  border: 1px solid theme("colors.red");
+}
+
+
+.form_field_group .form_field_error {
+  margin-top: 10px;
+  font-weight: normal !important;
+  font-size: theme("fontSize.xs");
+  color: theme("colors.red");
+}
+
+.form_field_desc {
+  font-style: italic;
+  font-size: theme("fontSize.xs");
+  margin: 15px 0;
+}
+
+form label {
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.form_field_line input {
+  display: inline-block;
+  width: auto;
+  margin-right: 5px;
+}
+
+.form_field_line {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.form_field_line label {
+  font-weight: initial;
+}
+
+.form_field_group .form_field_values_flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form_field_group .form_field_values_flex .form_field_line {
+  width: 30%;
+  min-width: 125px;
+}
+
+form input[type="submit"] {
+  width: 100%;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.ReactModal__Overlay {
+  background: theme("colors.gray-light") !important;
+}
+
+.ReactModal__Overlay .ReactModal__Content {
+  background: theme('colors.gray') !important;
+  border: none !important;
+}
+
+button:disabled {
+  opacity: 0.65;
+}
+
+.spinner {
+  animation: spin 1.5s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 235px) {
+  .top-btn-wrapper {
+    margin-top: 0;
+  }
+}
+
+.border-table {
+  border-collapse: collapse;
+}
+
+.border-table, .border-table td, .border-table tr, .border-table th {
+  border: 1px solid black;
+}

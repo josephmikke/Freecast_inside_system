@@ -1,0 +1,64 @@
+addMovie:
+  handler: routes/vod/movie/addMovie/index.default
+  events:
+    - http:
+        path: 'vod/movies'
+        cors: true
+        method: post
+        private: true
+getMovie:
+  handler: routes/vod/movie/getMovie/index.default
+  events:
+    - http:
+        path: 'vod/movies/{id}'
+        cors: true
+        method: get
+        private: true
+        request:
+          parameters:
+            paths:
+              id: true
+getMovies:
+  handler: routes/vod/movie/getMovies/index.default
+  events:
+    - http:
+        path: 'vod/movies'
+        cors: true
+        method: get
+        private: true
+        request:
+          parameters:
+            querystrings:
+              active: false
+              categories: false
+              packages: false
+              platforms: false
+              providers: false
+              search: false
+              sort: false
+              limit: false
+              nextToken: false
+deleteMovie:
+  handler: routes/vod/movie/deleteMovie/index.default
+  events:
+    - http:
+        path: 'vod/movies/{id}'
+        cors: true
+        method: delete
+        private: true
+        request:
+          parameters:
+            paths:
+              id: true
+updateMovie:
+  handler: routes/vod/movie/updateMovie/index.default
+  events:
+    - http:
+        path: 'vod/movies/{id}'
+        cors: true
+        method: patch
+        private: true
+        request:
+          parameters:
+            paths:
+              id: true

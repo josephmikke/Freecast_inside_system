@@ -1,0 +1,132 @@
+Resources:
+  vodDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        WebACLId: '${param:wafArn}'
+        HttpVersion: 'http2'
+        Origins:
+          - DomainName: !Select [2, !Split ['/', !GetAtt packagingGroup.DomainName] ]
+            Id: '${sls:stage}-mediapackage'
+            OriginCustomHeaders:
+              - HeaderName: 'X-MediaPackage-CDNIdentifier'
+                HeaderValue: !Sub
+                  - "{{resolve:secretsmanager:${SecretId}:SecretString:MediaPackageCDNIdentifier}}"
+                  - SecretId: !GetAtt mediaPackageCDNAuthorizationSecret.Id
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: 'match-viewer'
+              OriginSSLProtocols:
+                - 'TLSv1'
+          - DomainName: !GetAtt cmsAssetsBucket.DomainName
+            Id: '${sls:stage}-s3'
+            OriginAccessControlId: !GetAtt s3OAC.Id
+            S3OriginConfig:
+              OriginAccessIdentity: ""
+          - DomainName: !Select [2, !Split ["/", !GetAtt mediaTailorConfiguration.PlaybackEndpointPrefix]]
+            Id: '${sls:stage}-MediaTailor-Ads'
+            OriginCustomHeaders:
+              - HeaderName: 'X-MediaPackage-CDNIdentifier'
+                HeaderValue: !Sub
+                  - "{{resolve:secretsmanager:${SecretId}:SecretString:MediaPackageCDNIdentifier}}"
+                  - SecretId: !GetAtt mediaPackageCDNAuthorizationSecret.Id
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: 'match-viewer'
+              OriginSSLProtocols:
+                - 'TLSv1'
+          - DomainName: 'segments.mediatailor.us-east-1.amazonaws.com'
+            Id: '${sls:stage}-MediaTailor-Ad-CDN'
+            OriginCustomHeaders:
+              - HeaderName: 'X-MediaPackage-CDNIdentifier'
+                HeaderValue: !Sub
+                  - "{{resolve:secretsmanager:${SecretId}:SecretString:MediaPackageCDNIdentifier}}"
+                  - SecretId: !GetAtt mediaPackageCDNAuthorizationSecret.Id
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: 'match-viewer'
+              OriginSSLProtocols:
+                - 'TLSv1'
+        CacheBehaviors:
+          - MinTTL: 0
+            MaxTTL: 0
+            PathPattern: '/tm/*'
+            CachePolicyId: '658327ea-f89d-4fab-a63d-7e88639e58f6'
+            TargetOriginId: '${sls:stage}-MediaTailor-Ad-CDN'
+            ViewerProtocolPolicy: 'redirect-to-https'
+            AllowedMethods:
+              - 'GET'
+              - 'HEAD'
+              - 'OPTIONS'
+            ResponseHeadersPolicyId: '5cc3b908-e619-4b99-88e5-2cf7f45965bd'
+          - MinTTL: 0
+            MaxTTL: 0
+            PathPattern: '/v1/*'
+            OriginRequestPolicyId: '216adef6-5c7f-47e4-b989-5492eafa07d3'
+            CachePolicyId: '4135ea2d-6df8-44a3-9df3-4b5a84be39ad'
+            TargetOriginId: '${sls:stage}-MediaTailor-Ads'
+            ViewerProtocolPolicy: 'redirect-to-https'
+            AllowedMethods:
+              - 'GET'
+              - 'HEAD'
+              - 'OPTIONS'
+            ResponseHeadersPolicyId: '5cc3b908-e619-4b99-88e5-2cf7f45965bd'
+          - MinTTL: 6
+            PathPattern: '/out/v1/*'
+            OriginRequestPolicyId: '216adef6-5c7f-47e4-b989-5492eafa07d3'
+            CachePolicyId: '08627262-05a9-4f76-9ded-b50ca2e3a84f'
+            TargetOriginId: '${sls:stage}-mediapackage'
+            ViewerProtocolPolicy: 'redirect-to-https'
+            AllowedMethods:
+                - 'GET'
+                - 'HEAD'
+                - 'OPTIONS'
+            ResponseHeadersPolicyId: '5cc3b908-e619-4b99-88e5-2cf7f45965bd'
+        Comment: 'CloudFront ${sls:stage} Distribution for MediaPackage VOD and S3'
+        Enabled: true
+        PriceClass: 'PriceClass_All'
+        DefaultCacheBehavior:
+          MinTTL: 6
+          MaxTTL: 60
+          TargetOriginId: '${sls:stage}-s3'
+          AllowedMethods:
+            - 'GET'
+            - 'HEAD'
+            - 'OPTIONS'
+          ViewerProtocolPolicy: 'redirect-to-https'
+          CachePolicyId: '658327ea-f89d-4fab-a63d-7e88639e58f6'
+          OriginRequestPolicyId: '88a5eaf4-2fd4-4709-b370-b4c650ea3fcf'
+          ResponseHeadersPolicyId: '5cc3b908-e619-4b99-88e5-2cf7f45965bd'
+        CustomErrorResponses:
+          - ErrorCode: 400
+            ErrorCachingMinTTL: 1
+          - ErrorCode: 403
+            ErrorCachingMinTTL: 1
+          - ErrorCode: 404
+            ErrorCachingMinTTL: 1
+          - ErrorCode: 405
+            ErrorCachingMinTTL: 1
+          - ErrorCode: 414
+            ErrorCachingMinTTL: 1
+          - ErrorCode: 416
+            ErrorCachingMinTTL: 1
+          - ErrorCode: 500
+            ErrorCachingMinTTL: 1
+          - ErrorCode: 501
+            ErrorCachingMinTTL: 1
+          - ErrorCode: 502
+            ErrorCachingMinTTL: 1
+          - ErrorCode: 503
+            ErrorCachingMinTTL: 1
+  s3OAC:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Description: 'S3 OAC - ${sls:stage}'
+        Name: '${sls:stage}-s3-assets-OAC'
+        OriginAccessControlOriginType: 's3'
+        SigningBehavior: 'always'
+        SigningProtocol: 'sigv4'

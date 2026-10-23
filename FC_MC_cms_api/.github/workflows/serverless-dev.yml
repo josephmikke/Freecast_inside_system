@@ -1,0 +1,19 @@
+name: Deploy the serverless test stage
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/deploy-serverless.yml
+    secrets:
+      SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
+    with:
+      stage: test
+      role-to-assume: arn:aws:iam::199718138082:role/cms-api-test-role

@@ -1,0 +1,21 @@
+getMonitorLogs:
+  handler: routes/monitor/getMonitorLogs/index.default
+  events:
+    - http:
+        path: monitor/logs
+        cors: true
+        method: get
+        private: true
+
+getMonitorLog:
+  handler: routes/monitor/getMonitorLog/index.default
+  events:
+    - http:
+        path: monitor/{channel}/logs
+        cors: true
+        method: get
+        private: true
+        request:
+          parameters:
+            paths:
+              channel: true

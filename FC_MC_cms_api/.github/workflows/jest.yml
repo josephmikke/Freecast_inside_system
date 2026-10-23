@@ -1,0 +1,33 @@
+name: 'jest.'
+on:
+  pull_request_target:
+    branches:
+      - develop
+
+jobs:
+  coverage:
+    timeout-minutes: ${{ fromJSON(vars.TIMEOUT_MINUTES) }}
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      pull-requests: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup DynamoDB Local
+        uses: rrainn/dynamodb-action@v4.0.0
+        with:
+          port: 8000
+          cors: '*'
+      - uses: ArtiomTr/jest-coverage-report-action@v2
+        id: coverage
+        env:
+          NODE_OPTIONS: --experimental-vm-modules
+        with:
+          test-script: npm run test
+          output: report-markdown
+
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: ${{ steps.coverage.outputs.report }}

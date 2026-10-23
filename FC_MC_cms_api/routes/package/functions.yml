@@ -1,0 +1,53 @@
+addPackage:
+  handler: routes/package/addPackage/index.default
+  events:
+    - http:
+        path: 'packages'
+        cors: true
+        method: post
+        private: true
+getPackages:
+  handler: routes/package/getPackages/index.default
+  events:
+    - http:
+        path: 'packages'
+        cors: true
+        method: get
+        private: true
+updatePackage:
+  handler: routes/package/updatePackage/index.default
+  events:
+    - http:
+        path: 'packages/{id}'
+        cors: true
+        method: patch
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+updatePackageWeight:
+  handler: routes/package/updatePackageWeight/index.default
+  events:
+    - http:
+        path: 'packages/{id}/weight/{index}'
+        cors: true
+        method: get
+        request:
+          parameters:
+            paths:
+              id: true
+              index: true
+        private: true
+deletePackage:
+  handler: routes/package/deletePackage/index.default
+  events:
+    - http:
+        path: 'packages/{id}'
+        cors: true
+        method: delete
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true

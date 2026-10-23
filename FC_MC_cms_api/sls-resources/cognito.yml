@@ -1,0 +1,27 @@
+Resources:
+  # Cognito User Pool
+  userPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: cms-${sls:stage}
+      UsernameConfiguration:
+        CaseSensitive: false
+      AdminCreateUserConfig:
+        AllowAdminCreateUserOnly: True
+      AccountRecoverySetting:
+        RecoveryMechanisms:
+          - Name: verified_email
+            Priority: 1
+      UsernameAttributes:
+        - email
+      AutoVerifiedAttributes:
+        - email
+  appClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      UserPoolId: !Ref userPool
+      ClientName: cms-web-client-${sls:stage}
+      ExplicitAuthFlows:
+        - "ADMIN_NO_SRP_AUTH"
+      SupportedIdentityProviders:
+        - COGNITO

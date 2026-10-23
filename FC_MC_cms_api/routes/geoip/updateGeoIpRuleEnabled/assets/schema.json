@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "required": [
+        "enabled"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

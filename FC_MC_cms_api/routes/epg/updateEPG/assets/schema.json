@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "extId": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "ingestionSchedule": {
+          "type": "string"
+        },
+        "utcOffset": {
+          "type": "number"
+        },
+        "ingestionUrl": {
+          "type": "string"
+        },
+        "epgTemplate": {
+          "type": "string"
+        },
+        "thumbnail": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
+

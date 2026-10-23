@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "end_time": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "thumbnail": {
+          "type": "string"
+        },
+        "alternateThumbnail": {
+          "type": "string"
+        },
+        "ext_id": {
+          "type": "string"
+        },
+        "catchup": {
+          "type": "boolean"
+        },
+        "rating": {
+          "type": "string"
+        },
+        "archive": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
+

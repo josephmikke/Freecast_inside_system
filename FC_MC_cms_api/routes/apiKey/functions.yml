@@ -1,0 +1,14 @@
+getApiKey:
+  handler: routes/apiKey/getApiKey/index.default
+  events:
+    - http:
+        path: 'apiKey'
+        cors: true
+        method: get
+        authorizer:
+          name: CognitoAuthorizer
+          type: COGNITO_USER_POOLS
+          arn:
+            Fn::GetAtt:
+              - userPool
+              - Arn

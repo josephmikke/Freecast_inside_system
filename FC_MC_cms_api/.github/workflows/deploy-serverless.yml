@@ -1,0 +1,46 @@
+name: Deploy serverless
+
+on:
+  workflow_call:
+    inputs:
+      stage:
+        description: 'The serverless stage'
+        default: 'test'
+        required: true
+        type: string
+      role-to-assume:
+        description: 'The IAM role ARN to assume via OIDC'
+        required: true
+        type: string
+    secrets:
+      SERVERLESS_ACCESS_KEY:
+        required: true
+
+jobs:
+  deploy:
+    name: Deploy in the ${{ inputs.stage }} stage
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ inputs.role-to-assume }}
+          aws-region: us-east-1
+      - run: npm install
+      - name: serverless deploy (api)
+        run: npx serverless deploy --stage ${{ inputs.stage }}
+        env:
+          SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
+      - name: serverless deploy (workers)
+        run: npx serverless deploy --config serverless-workers.yml --stage ${{ inputs.stage }}
+        env:
+          SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}

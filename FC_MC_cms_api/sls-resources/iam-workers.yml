@@ -1,0 +1,39 @@
+iam:
+  role:
+    statements:
+      - Effect: Allow
+        Action: 'dynamodb:*'
+        Resource:
+          - Fn::Sub: 'arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/cms-${sls:stage}'
+          - Fn::Sub: 'arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/cms-${sls:stage}/index/*'
+          - Fn::Sub: 'arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/cms-log'
+          - Fn::Sub: 'arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/cms-log/index/*'
+      - Effect: Allow
+        Action:
+          - 's3:PutObject'
+          - 's3:GetObject'
+          - 's3:ListBucket'
+          - 's3:ListBucketVersions'
+          - 's3:GetBucketVersioning'
+          - 's3:DeleteObject'
+          - 's3:DeleteObjectVersion'
+        Resource:
+          - arn:aws:s3:::sony-freecast
+          - arn:aws:s3:::sony-freecast/*
+      - Effect: Allow
+        Action:
+          - 'medialive:BatchUpdateSchedule'
+          - 'medialive:DeleteSchedule'
+          - 'medialive:DescribeChannel'
+          - 'medialive:DescribeInput'
+          - 'mediatailor:GetChannelSchedule'
+          - 'states:StartExecution'
+        Resource: '*'
+      - Effect: Allow
+        Action: 'sns:Publish'
+        Resource:
+          - Fn::Sub: 'arn:aws:sns:${AWS::Region}:${AWS::AccountId}:MediaConnect-Disconnected'
+      - Effect: Allow
+        Action: 'logs:CreateLogGroup'
+        Resource:
+          - Fn::Sub: 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*'

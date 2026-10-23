@@ -1,0 +1,32 @@
+addEpisode:
+  handler: routes/vod/episode/addEpisode/index.default
+  events:
+    - http:
+        path: 'vod/episodes'
+        cors: true
+        method: post
+        private: true
+deleteEpisode:
+  handler: routes/vod/episode/deleteEpisode/index.default
+  events:
+    - http:
+        path: 'vod/episodes/{id}'
+        cors: true
+        method: delete
+        private: true
+        request:
+          parameters:
+            paths:
+              id: true
+updateEpisode:
+  handler: routes/vod/episode/updateEpisode/index.default
+  events:
+    - http:
+        path: 'vod/episodes/{id}'
+        cors: true
+        method: patch
+        private: true
+        request:
+          parameters:
+            paths:
+              id: true

@@ -1,0 +1,67 @@
+addGeoIpRule:
+  handler: routes/geoip/addGeoIpRule/index.default
+  events:
+    - http:
+        path: 'rules'
+        cors: true
+        method: post
+        private: true
+deleteGeoIpRule:
+  handler: routes/geoip/deleteGeoIpRule/index.default
+  events:
+    - http:
+        path: 'rules/{id}'
+        cors: true
+        method: delete
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+getGeoIpRules:
+  handler: routes/geoip/getGeoIpRules/index.default
+  events:
+    - http:
+        path: 'rules'
+        cors: true
+        method: get
+        request:
+          parameters:
+            querystrings:
+              limit: false
+              nextToken: false
+        private: true
+updateGeoIpRuleWeight:
+  handler: routes/geoip/updateGeoIpRuleWeight/index.default
+  events:
+    - http:
+        path: 'rules/{id}/weight/{index}'
+        cors: true
+        method: get
+        request:
+          parameters:
+            paths:
+              id: true
+              index: true
+        private: true
+updateGeoIpRuleEnabled:
+  handler: routes/geoip/updateGeoIpRuleEnabled/index.default
+  events:
+    - http:
+        path: 'rules/{id}'
+        cors: true
+        method: patch
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+geoIpEventListener:
+  handler: routes/geoip/eventListener/index.default
+  timeout: 600
+  events:
+    - eventBridge:
+        eventBus: ${sls:stage}-cms
+        pattern:
+          source:
+            - cms.api

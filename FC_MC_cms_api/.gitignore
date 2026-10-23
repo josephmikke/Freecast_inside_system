@@ -1,0 +1,9 @@
+.idea
+node_modules
+.serverless
+.build
+.DS_Store
+coverage
+docker
+.vscode
+report.json

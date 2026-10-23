@@ -1,0 +1,171 @@
+{
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "required": [
+        "name",
+        "slug",
+        "rating",
+        "description",
+        "availableDate",
+        "thumbnail",
+        "provider",
+        "packages",
+        "brands",
+        "streams"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "extId": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "imdbId": {
+          "type": "string"
+        },
+        "tmdbId": {
+          "type": "string"
+        },
+        "releaseYear": {
+          "type": "string"
+        },
+        "vastId": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "contentData": {
+          "type": "string"
+        },
+        "availableDate": {
+          "type": "string"
+        },
+        "expirationDate": {
+          "type": "string"
+        },
+        "thumbnail": {
+          "type": "string"
+        },
+        "alternateThumbnail": {
+          "type": "string"
+        },
+        "backgroundThumbnail": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "categories": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "weight": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        "packages": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "brands": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "streams": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "extId": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "format": {
+                "type": "string"
+              },
+              "data": {
+                "type": "string"
+              },
+              "daiParams": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "name",
+              "type",
+              "format",
+              "data",
+              "daiParams"
+            ]
+          }
+        },
+        "platforms": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+
+        },
+        "genres": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+
+        },
+        "locations": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+
+        },
+        "distributors": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
+

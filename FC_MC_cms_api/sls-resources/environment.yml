@@ -1,0 +1,92 @@
+ENV: ${sls:stage}
+NODE_OPTIONS: --enable-source-maps
+CMS_TABLE_NAME: cms-${sls:stage}
+CMS_LOG_TABLE_NAME: cms-log
+STORAGE_BUCKET: !Ref cmsAssetsBucket
+STORAGE_BUCKET_ARN: !GetAtt cmsAssetsBucket.Arn
+SCHEDULER_ARN: !Join
+  - ":"
+  - - arn
+    - aws
+    - lambda
+    - !Ref AWS::Region
+    - !Ref AWS::AccountId
+    - "function:${self:service}-${sls:stage}-scheduleHandler"
+AUTOINGESTION_SCHEDULER_ARN: !Join
+  - ":"
+  - - arn
+    - aws
+    - lambda
+    - !Ref AWS::Region
+    - !Ref AWS::AccountId
+    - "function:${self:service}-${sls:stage}-autoIngestionScheduleHandler"
+ONE_TIME_SCHEDULER_ARN: !Join
+  - ":"
+  - - arn
+    - aws
+    - lambda
+    - !Ref AWS::Region
+    - !Ref AWS::AccountId
+    - "function:${self:service}-${sls:stage}-recordingHandler"
+SCHEDULER_ROLE_ARN: !GetAtt SchedulerInvokeRole.Arn
+MEDIACONVERT_ROLE_ARN: !GetAtt MediaConvertJobRole.Arn
+VOD_STATE_MACHINE_ARN: !Join
+  - ":"
+  - - arn
+    - aws
+    - states
+    - !Ref AWS::Region
+    - !Ref AWS::AccountId
+    - "stateMachine:${self:service}-${sls:stage}-vodStateMachine"
+MEDIACONVERT_QUEUE_ARN: "arn:aws:mediaconvert:us-east-1:199718138082:queues/vod-queue"
+MEDIACONVERT_ENDPOINT: "https://lxlxpswfb.mediaconvert.us-east-1.amazonaws.com"
+MEDIAPACKAGE_ASSET_GROUP_ID: "vod-${sls:stage}"
+MEDIAPACKAGE_ASSET_ROLE_ARN: "arn:aws:iam::199718138082:role/MediaPackage-S3-Full-Access" # TODO update this
+DISTRIBUTORS_ENDPOINT: "https://api-services.freecast.com/affiliates/api/distributors/"
+BRANDS_ENDPOINT: "https://api-services.freecast.com/branding/api/v0/brands/"
+NPVR_ROLE_ARN: "arn:aws:iam::199718138082:role/MediaPackage-S3-Full-Access" # TODO update this
+ASSETS_URL: !Join ["", ["https://", !GetAtt vodDistribution.DomainName]]
+NO_THUMBNAIL_URL: "default/nothumbnail/thumbnail.png"
+CDN_DISTRIBUTION_ID: !GetAtt vodDistribution.Id
+WEB_ACL_NAME: "prod-DistributionACL"
+WEB_ACL_ID: "dfc706c0-1be2-457d-8fc4-e8a0fb8679f1"
+BUSNAME: ${sls:stage}-cms
+MEDIATAILOR_HLS_PREFIX_URL: !GetAtt mediaTailorConfiguration.HlsConfiguration.ManifestEndpointPrefix
+MEDIATAILOR_DASH_PREFIX_URL: !GetAtt mediaTailorConfiguration.DashConfiguration.ManifestEndpointPrefix
+VOD_TAILOR_PREFIX: "https://d3nl1pm83p0sdt.cloudfront.net"
+HLS_VOD_TAILOR_PREFIX: "https://d1yg796ay1a4u7.cloudfront.net"
+LOG_TRACK_ARN: !Join
+  - ":"
+  - - arn
+    - aws
+    - lambda
+    - !Ref AWS::Region
+    - !Ref AWS::AccountId
+    - "function:${self:service}-${sls:stage}-logHandler"
+
+# DAI VAST and PREROLL TAG ID
+CRACKLE_PREROLL: "649879"
+CRACKLE_VASTID: "649614"
+POPCORN_PREROLL: "649888"
+POPCORN_VASTID: "649887"
+GOSEE_VASTID: "717774"
+ELECTRICNOW_VASTID: "717775"
+BEC_VASTID: "717776"
+MAVERICK_VASTID: "717777"
+INSP_VASTID: "717778"
+AXSTV_VASTID: "717779"
+ENTREPRENEUR_VASTID: "717780"
+PURSUIT_VASTID: "717782"
+QUESTAR_VASTID: "717783"
+
+# MediaPackage configuration names - test stage (vod-test packaging group)
+HLS_PACKAGE_NAME_TEST: "HLS_test"
+HLS_DRM_PACKAGE_NAME_TEST: "HLS_DRM_test"
+DASH_PACKAGE_NAME_TEST: "DASH_test"
+DASH_DRM_PACKAGE_NAME_TEST: "DASH_DRM_test"
+
+# MediaPackage configuration names - prod stage (vod-prod packaging group, legacy lowercase IDs)
+HLS_PACKAGE_NAME_PROD: "hls_test_pass"
+HLS_DRM_PACKAGE_NAME_PROD: "hls_drm_prod"
+DASH_PACKAGE_NAME_PROD: "dash_test_manifest"
+DASH_DRM_PACKAGE_NAME_PROD: "dash_drm_prod"

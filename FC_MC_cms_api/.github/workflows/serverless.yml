@@ -1,0 +1,40 @@
+name: Deploy serverless
+
+on:
+  push:
+    branches:
+      - develop
+      - production
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  map-envs:
+    runs-on: ubuntu-latest
+    steps:
+      - id: map
+        run: |
+          case "${{github.ref_name}}" in
+            develop)
+              echo "stage=test" >> $GITHUB_OUTPUT
+              echo "role=arn:aws:iam::199718138082:role/cms-api-test-role" >> $GITHUB_OUTPUT
+              ;;
+            production)
+              echo "stage=prod" >> $GITHUB_OUTPUT
+              echo "role=arn:aws:iam::199718138082:role/cms-api-prod-role" >> $GITHUB_OUTPUT
+              ;;
+          esac
+    outputs:
+      stage: ${{ steps.map.outputs.stage }}
+      role: ${{ steps.map.outputs.role }}
+
+  deploy:
+    needs: [map-envs]
+    uses: ./.github/workflows/deploy-serverless.yml
+    secrets:
+      SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
+    with:
+      stage: ${{ needs.map-envs.outputs.stage }}
+      role-to-assume: ${{ needs.map-envs.outputs.role }}

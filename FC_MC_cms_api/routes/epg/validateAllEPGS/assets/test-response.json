@@ -1,0 +1,95 @@
+{
+  "statusCode": 200,
+  "body": {
+    "totalEPGs": 2,
+    "validEPGs": 1,
+    "invalidEPGs": 1,
+    "results": [
+      {
+        "epgId": "epg1",
+        "epgName": "EPG 1",
+        "validation": {
+          "isValid": true,
+          "errors": [],
+          "warnings": [],
+          "totalPrograms": 2,
+          "sortedPrograms": [
+            {
+              "id": "prog1",
+              "title": "Program 1",
+              "start_time": "2024-01-01T10:00:00Z",
+              "end_time": "2024-01-01T11:00:00Z",
+              "duration": 60,
+              "ext_id": "ext1",
+              "thumbnail": "thumb1.jpg",
+              "alternateThumbnail": null,
+              "catchup": false,
+              "archive": false,
+              "rating": null,
+              "description": "Description 1",
+              "slug": "program-1",
+              "subtitle": "Subtitle 1"
+            },
+            {
+              "id": "prog2",
+              "title": "Program 2",
+              "start_time": "2024-01-01T11:00:00Z",
+              "end_time": "2024-01-01T12:00:00Z",
+              "duration": 60,
+              "ext_id": "ext2",
+              "thumbnail": "thumb2.jpg",
+              "alternateThumbnail": null,
+              "catchup": false,
+              "archive": false,
+              "rating": null,
+              "description": "Description 2",
+              "slug": "program-2",
+              "subtitle": "Subtitle 2"
+            }
+          ],
+          "timeGaps": [],
+          "timeOverlaps": []
+        }
+      },
+      {
+        "epgId": "epg2",
+        "epgName": "EPG 2",
+        "validation": {
+          "isValid": false,
+          "errors": [
+            "Invalid program duration: \"Program 3\" has start time (2024-01-01T10:00:00Z) >= end time (2024-01-01T09:00:00Z)"
+          ],
+          "warnings": [],
+          "totalPrograms": 1,
+          "sortedPrograms": [
+            {
+              "id": "prog3",
+              "title": "Program 3",
+              "start_time": "2024-01-01T10:00:00Z",
+              "end_time": "2024-01-01T09:00:00Z",
+              "duration": 60,
+              "ext_id": "ext3",
+              "thumbnail": "thumb3.jpg",
+              "alternateThumbnail": null,
+              "catchup": false,
+              "archive": false,
+              "rating": null,
+              "description": "Description 3",
+              "slug": "program-3",
+              "subtitle": "Subtitle 3"
+            }
+          ],
+          "timeGaps": [],
+          "timeOverlaps": []
+        }
+      }
+    ],
+    "summary": {
+      "totalPrograms": 3,
+      "totalErrors": 1,
+      "totalWarnings": 0,
+      "totalTimeGaps": 0,
+      "totalTimeOverlaps": 0
+    }
+  }
+}

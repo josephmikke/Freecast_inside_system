@@ -1,0 +1,126 @@
+addEPG:
+  handler: routes/epg/addEPG/index.default
+  events:
+    - http:
+        path: 'epg'
+        cors: true
+        method: post
+        private: true
+addEPGProgram:
+  handler: routes/epg/addEPGProgram/index.default
+  events:
+    - http:
+        path: 'epg/{id}/program'
+        cors: true
+        method: post
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+getEPGs:
+  handler: routes/epg/getEPGs/index.default
+  events:
+    - http:
+        path: 'epg'
+        cors: true
+        method: get
+        private: true
+getEPG:
+  handler: routes/epg/getEPG/index.default
+  events:
+    - http:
+        path: 'epg/{id}'
+        cors: true
+        method: get
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+validateEPG:
+  handler: routes/epg/validateEPG/index.default
+  events:
+    - http:
+        path: 'epg/{id}/validate'
+        cors: true
+        method: get
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+deleteEPG:
+  handler: routes/epg/deleteEPG/index.default
+  events:
+    - http:
+        path: 'epg/{id}'
+        cors: true
+        method: delete
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+updateEPG:
+  handler: routes/epg/updateEPG/index.default
+  events:
+    - http:
+        path: 'epg/{id}'
+        cors: true
+        method: patch
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+updateEPGProgram:
+  handler: routes/epg/updateEPGProgram/index.default
+  events:
+    - http:
+        path: 'epg/{id}/program/{programId}'
+        cors: true
+        method: patch
+        private: true
+deleteAllEPGPrograms:
+  handler: routes/epg/deleteAllEPGPrograms/index.default
+  events:
+    - http:
+        path: 'epg/{id}/program'
+        cors: true
+        method: delete
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+ingestEPG:
+  handler: routes/epg/ingestEPG/index.default
+  events:
+    - http:
+        path: 'epg/{id}/ingest'
+        cors: true
+        method: get
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+repairEPG:
+  handler: routes/epg/repairEPG/index.default
+  events:
+    - http:
+        path: 'epg/{id}/repair'
+        cors: true
+        method: post
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+scheduleHandler:
+  timeout: 600
+  handler: routes/epg/scheduleHandler/index.default
+validateAllEPGs:
+  handler: routes/epg/validateAllEPGS/index.default
+  timeout: 600

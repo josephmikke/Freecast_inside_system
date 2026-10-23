@@ -1,0 +1,12 @@
+# CMS channels
+services:
+  drm-api:
+    path: api
+  waf:
+    path: waf
+  live-channels:
+    path: broadcast
+    params:
+      wafArn: ${waf.WAFWebACLArn}
+      restApiId: ${drm-api.RestApiId}
+      apiEndpoint: ${drm-api.ApiEndpoint}

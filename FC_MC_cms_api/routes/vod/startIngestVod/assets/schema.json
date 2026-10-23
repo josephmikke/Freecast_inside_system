@@ -1,0 +1,145 @@
+{
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "required": [
+        "url",
+        "mapping"
+      ],
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "mapping": {
+          "type": "object",
+          "properties": {
+            "root": {
+              "type": "string"
+            },
+            "guid": {
+              "type": "string"
+            },
+            "extId": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "asset": {
+              "type": "string"
+            },
+            "thumbnails": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "seriesId": {
+              "type": "string"
+            },
+            "seasonNum": {
+              "type": "string"
+            },
+            "episodeNum": {
+              "type": "string"
+            },
+            "pubDate": {
+              "type": "string"
+            },
+            "rotationStart": {
+              "type": "string"
+            },
+            "rotationEnd": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "string"
+            },
+            "cast": {
+              "type": "string"
+            },
+            "genres": {
+              "type": "string"
+            },
+            "nextPage": {
+              "type": "string"
+            },
+            "cuePoints": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "root",
+            "guid",
+            "extId",
+            "title",
+            "asset",
+            "thumbnails",
+            "description",
+            "subtitle",
+            "type",
+            "seriesId",
+            "seasonNum",
+            "episodeNum",
+            "pubDate",
+            "rotationStart",
+            "rotationEnd",
+            "rating",
+            "cast",
+            "genres",
+            "nextPage",
+            "cuePoints"
+          ]
+        },
+        "provider": {
+          "type": "string"
+        },
+        "packages": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "brands": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "distributors": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "locations": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "platforms": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "isPrivate": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

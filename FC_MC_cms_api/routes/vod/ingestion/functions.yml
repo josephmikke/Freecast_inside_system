@@ -1,0 +1,25 @@
+getIngestion:
+  handler: routes/vod/ingestion/getIngestion/index.default
+  events:
+    - http:
+        path: 'vod/ingestions/{id}'
+        cors: true
+        method: get
+        private: true
+        request:
+          parameters:
+            paths:
+              id: true
+getIngestions:
+  handler: routes/vod/ingestion/getIngestions/index.default
+  events:
+    - http:
+        path: 'vod/ingestions'
+        cors: true
+        method: get
+        private: true
+        request:
+          parameters:
+            querystrings:
+              limit: false
+              nextToken: false

@@ -1,0 +1,40 @@
+addLocation:
+  handler: routes/location/addLocation/index.default
+  events:
+    - http:
+        path: 'locations'
+        cors: true
+        method: post
+        private: true
+getLocations:
+  handler: routes/location/getLocations/index.default
+  events:
+    - http:
+        path: 'locations'
+        cors: true
+        method: get
+        private: true
+updateLocation:
+  handler: routes/location/updateLocation/index.default
+  events:
+    - http:
+        path: 'locations/{id}'
+        cors: true
+        method: patch
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+deleteLocation:
+  handler: routes/location/deleteLocation/index.default
+  events:
+    - http:
+        path: 'locations/{id}'
+        cors: true
+        method: delete
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true

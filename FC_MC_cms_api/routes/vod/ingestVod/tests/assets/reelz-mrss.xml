@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:media="http://search.yahoo.com/mrss/" xmlns:xumo="http://www.xumo.com/rss/extensions/" xmlns:dcterms="http://purl.org/dc/terms/" version="2.0">
+  <channel>
+    <item>
+      <guid isPermaLink="false">ROPL</guid>
+      <xumo:episodic type="series" />
+      <title>On Patrol: Live</title>
+      <description>A Live Series following Law Enforcement Officers across the country, live and in real time.</description>
+      <pubDate>2026</pubDate>
+      <media:thumbnail medium="image" width="1080" height="1920" type="image/jpg" url="https://reelz-mrss.s3.amazonaws.com/ROPL.jpg" />
+      <media:keywords>Live, Police, Cops, Patrol, Dan Abrams, Sean Larkin, Curtis Wilson, Tom Rizzo, On Patrol</media:keywords>
+    </item>
+    <item>
+      <guid isPermaLink="false">ROPL522</guid>
+      <media:title type="plain">S5 E22 (10-3-2026)</media:title>
+      <media:description>Hosts Dan Abrams and others provide analysis as law enforcement officers are followed in real time.</media:description>
+      <pubDate>Saturday, 03 Oct 2026</pubDate>
+      <media:category scheme="https://www.xumo.com">Documentary</media:category>
+      <media:keywords>Live, Police, Cops, Patrol, Dan Abrams, Sean Larkin, Curtis Wilson, Tom Rizzo, On Patrol</media:keywords>
+      <media:content medium="video" duration="2639" bitrate="38732" height="1080" width="1920" url="https://reelz-mrss.s3.amazonaws.com/ROPL522.mp4" />
+      <media:thumbnail medium="image" height="1080" width="1920" type="image/jpg" url="https://reelz-mrss.s3.amazonaws.com/ROPL522_episode_thumbnail.jpg" />
+      <media:group>
+        <media:subTitle type="text/webvtt" lang="en-US" href="https://reelz-mrss.s3.amazonaws.com/ROPL522.en.vtt" />
+      </media:group>
+      <media:rating scheme="urn:v-chip">TV-14</media:rating>
+      <dcterms:valid>start=2026-10-04T00:00:00.000+00:00;end=2036-10-02T00:00:00.000+00:00;scheme=W3C-DTF</dcterms:valid>
+      <xumo:cuePoints>1148,1993,2711,3678,4439,5252,6051,6610,7212,7608,7821</xumo:cuePoints>
+      <xumo:episodic type="episode">
+        <xumo:seriesId>ROPL</xumo:seriesId>
+        <xumo:seasonNum>5</xumo:seasonNum>
+        <xumo:episodeNum>22</xumo:episodeNum>
+      </xumo:episodic>
+    </item>
+    <item>
+      <guid isPermaLink="false">ROPS</guid>
+      <xumo:episodic type="series" />
+      <title>On Patrol: First Shift</title>
+      <description>A discussion of what's in store for the upcoming episode of "On Patrol: Live."</description>
+      <pubDate>2026</pubDate>
+      <media:thumbnail medium="image" width="1080" height="1920" type="image/jpg" url="https://reelz-mrss.s3.amazonaws.com/ROPS.jpg" />
+      <media:keywords>Live, Police, Cops, Patrol, Dan Abrams, Sean Larkin, Curtis Wilson, Tom Rizzo, On Patrol</media:keywords>
+    </item>
+    <item>
+      <guid isPermaLink="false">ROPS522</guid>
+      <media:title type="plain">S5 E22 (10-3-2026)</media:title>
+      <media:description>Discussing what's in store for the upcoming episode and a sneak peek of departments and officers.</media:description>
+      <pubDate>Saturday, 03 Oct 2026</pubDate>
+      <media:category scheme="https://www.xumo.com">Documentary</media:category>
+      <media:keywords>Live, Police, Cops, Patrol, Dan Abrams, Sean Larkin, Curtis Wilson, Tom Rizzo, On Patrol</media:keywords>
+      <media:content medium="video" duration="2639" bitrate="38732" height="1080" width="1920" url="https://reelz-mrss.s3.amazonaws.com/ROPS522.mp4" />
+      <media:thumbnail medium="image" height="1080" width="1920" type="image/jpg" url="https://reelz-mrss.s3.amazonaws.com/ROPS_episode_thumbnail.jpg" />
+      <media:group>
+        <media:subTitle type="text/webvtt" lang="en-US" href="https://reelz-mrss.s3.amazonaws.com/ROPS522.en.vtt" />
+      </media:group>
+      <media:rating scheme="urn:v-chip">TV-14</media:rating>
+      <dcterms:valid>start=2026-10-04T00:00:00.000+00:00;end=2036-10-02T00:00:00.000+00:00;scheme=W3C-DTF</dcterms:valid>
+      <xumo:cuePoints>699,1239,1764,2214</xumo:cuePoints>
+      <xumo:episodic type="episode">
+        <xumo:seriesId>ROPS</xumo:seriesId>
+        <xumo:seasonNum>5</xumo:seasonNum>
+        <xumo:episodeNum>22</xumo:episodeNum>
+      </xumo:episodic>
+    </item>
+  </channel>
+</rss>

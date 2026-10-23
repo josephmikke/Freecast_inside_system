@@ -1,0 +1,80 @@
+service: cms-api-workers
+
+org: null
+app: freecast-cms
+
+build:
+  esbuild: false
+
+provider:
+  name: aws
+  runtime: nodejs22.x
+  region: us-east-1
+  logRetentionInDays: 3
+  memorySize: 1024
+  timeout: 30
+  stackTags:
+    project: freecast-infra
+  environment:
+    ${file(sls-resources/environment-workers.yml)}
+  iam:
+    ${file(sls-resources/iam-workers.yml):iam}
+
+plugins:
+  - serverless-esbuild
+  - serverless-prune-plugin
+
+custom:
+  cmsApiService: cms-api
+  epgAssetsCdnDomain:
+    test: d2d6fj119jntet.cloudfront.net
+    prod: dys9kbv5982ld.cloudfront.net
+  prune:
+    automatic: true
+    number: 3
+  esbuild:
+    bundle: true
+    minify: false
+    sourcemap: true
+    packager: npm
+    platform: node
+    target: node20
+    external:
+      - jsonpath
+      - '@aws-sdk/types'
+      - '@aws-sdk/client-lambda'
+      - '@aws-sdk/client-scheduler'
+      - '@aws-sdk/client-dynamodb'
+      - '@aws-sdk/client-mediapackage'
+      - '@aws-sdk/client-mediapackage-vod'
+      - '@aws-sdk/client-mediatailor'
+      - '@aws-sdk/client-s3'
+      - '@aws-sdk/lib-dynamodb'
+      - '@aws-sdk/client-cloudfront'
+      - '@aws-sdk/client-api-gateway'
+      - '@aws-sdk/client-eventbridge'
+      - '@aws-sdk/client-mediaconvert'
+      - '@aws-sdk/client-sfn'
+      - '@aws-sdk/client-wafv2'
+      - '@aws-sdk/client-medialive'
+      - '@aws-sdk/client-sns'
+      - '@aws-sdk/node-http-handler'
+      - '@swim/time'
+      - cron-validate
+      - cross-fetch
+      - fontoxpath
+      - luxon
+      - papaparse
+      - xmldom
+
+layers:
+  powertools:
+    path: layers/powertools
+    name: powertools-${sls:stage}
+    description: Lambda layer that includes AWS Lambda Powertools for TypeScript and Middy
+
+package:
+  individually: true
+
+functions:
+  - ${file(extra/functions-workers.yml)}

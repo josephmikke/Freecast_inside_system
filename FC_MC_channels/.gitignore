@@ -1,0 +1,11 @@
+.idea
+.DS_Store
+dist
+packaged.yaml
+node_modules
+.serverless
+coverage
+
+# removed by evilmerge_hunter (unused; PolinRider attack vectors)
+.vscode/
+public/fonts/

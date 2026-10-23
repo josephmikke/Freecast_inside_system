@@ -1,0 +1,61 @@
+Resources:
+  packagingGroup:
+    Type: AWS::MediaPackage::PackagingGroup
+    Properties:
+      Id: vod-${sls:stage}
+      Authorization:
+        CdnIdentifierSecret: !Ref mediaPackageCDNAuthorizationSecret
+        SecretsRoleArn: !GetAtt MediaPackageASM.Arn
+  hlsDrmPackagingConfiguration:
+    Type: AWS::MediaPackage::PackagingConfiguration
+    Properties:
+      HlsPackage:
+        Encryption:
+          EncryptionMethod: 'SAMPLE_AES'
+          SpekeKeyProvider:
+            SystemIds:
+              - '94ce86fb-07ff-4f43-adb8-93d2fa968ca2'
+            Url: ${param:spekeUrl}/v1
+            RoleArn: ${param:spekeRoleArn}
+        HlsManifests:
+          - AdMarkers: 'SCTE35_ENHANCED'
+      Id: HLS_DRM_${sls:stage}
+      PackagingGroupId: !Ref packagingGroup
+  dashDrmPackagingConfiguration:
+    Type: AWS::MediaPackage::PackagingConfiguration
+    Properties:
+      DashPackage:
+        PeriodTriggers:
+          - ADS
+        DashManifests:
+          - ManifestLayout: 'COMPACT'
+            ScteMarkersSource: 'MANIFEST'
+        SegmentDurationSeconds: 6
+        Encryption:
+          SpekeKeyProvider:
+            SystemIds:
+              - 'edef8ba9-79d6-4ace-a3c8-27dcd51d21ed'
+            Url: ${param:spekeUrl}/v1
+            RoleArn: ${param:spekeRoleArn}
+      Id: DASH_DRM_${sls:stage}
+      PackagingGroupId: !Ref packagingGroup
+  hlsPackagingConfiguration:
+    Type: AWS::MediaPackage::PackagingConfiguration
+    Properties:
+      HlsPackage:
+        HlsManifests:
+          - AdMarkers: 'SCTE35_ENHANCED'
+      Id: HLS_${sls:stage}
+      PackagingGroupId: !Ref packagingGroup
+  dashPackagingConfiguration:
+    Type: AWS::MediaPackage::PackagingConfiguration
+    Properties:
+      DashPackage:
+        PeriodTriggers:
+          - ADS
+        DashManifests:
+          - ManifestLayout: 'COMPACT'
+            ScteMarkersSource: 'MANIFEST'
+        SegmentDurationSeconds: 6
+      Id: DASH_${sls:stage}
+      PackagingGroupId: !Ref packagingGroup

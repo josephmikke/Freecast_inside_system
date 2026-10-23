@@ -1,0 +1,43 @@
+[data-amplify-router] {
+    background-color: #454545 !important;
+}
+
+[data-amplify-form] {
+    display: flex;
+    justify-content: center;
+}
+
+.amplify-label {
+    color: white;
+}
+
+.amplify-tabs button {
+    color: white !important;
+}
+
+.amplify-tabs button:is([data-state="active"]) {
+    background-color: #454545 !important;
+}
+
+.amplify-tabs button:is([data-state="inactive"]) {
+    background-color: #949699BF !important;
+}
+
+.amplify-input {
+   background-color: #252525 !important;
+   border: none;
+   color: white;
+}
+
+.amplify-tabs-item[data-amplify-tabs-item-active] {
+    color: black;
+}
+
+.amplify-field__show-password {
+    background-color: #252525 !important;
+    border: none;
+}
+
+.amplify-button {
+    color: white !important;
+}

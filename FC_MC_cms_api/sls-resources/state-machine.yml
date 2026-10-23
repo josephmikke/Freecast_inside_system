@@ -1,0 +1,49 @@
+ingestVodState:
+  name: ${self:service}-${sls:stage}-vodStateMachine
+  definition:
+    Comment: "Lambda to trigger VOD ingestion process"
+    StartAt: TriggerVODIngestion
+    States:
+      TriggerVODIngestion:
+        Type: Task
+        Resource:
+          Fn::GetAtt: [ingestVod, Arn]
+        Next: MapIngest
+      MapIngest:
+        Type: Map
+        ItemsPath: "$.url"
+        ResultPath: "$.url"
+        ItemSelector:
+          "type.$": "$.type"
+          "url.$": "$$.Map.Item.Value"
+          "mapping.$": "$.mapping"
+          "ingestionParentId.$": "$.ingestionParentId"
+          "isPrivate.$": "$.isPrivate"
+          "provider.$": "$.provider"
+          "packages.$": "$.packages"
+          "brands.$": "$.brands"
+          "distributors.$": "$.distributors"
+          "locations.$": "$.locations"
+          "platforms.$": "$.platforms"
+        ItemProcessor:
+          ProcessorConfig:
+            Mode: INLINE
+          StartAt: IngestPage
+          States:
+            IngestPage:
+              Type: Task
+              Resource:
+                Fn::GetAtt: [ingestVod, Arn]
+              Next: CheckError
+            CheckError:
+              Type: Choice
+              Choices:
+                - Variable: "$.type"
+                  StringEquals: "FAILURE"
+                  Next: IngestPage
+                - Variable: "$.type"
+                  StringEquals: "DONE"
+                  Next: SuccessState
+            SuccessState:
+              Type: Succeed
+        End: true

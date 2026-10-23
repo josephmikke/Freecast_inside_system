@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  dynamodb-local:
+    # -inMemory: the suites create and drop their own tables, so nothing needs to survive a
+    # restart. It also avoids the bind-mounted dbPath, which the container cannot write to
+    # unless the host directory is owned by the uid the container runs as.
+    command: "-jar DynamoDBLocal.jar -sharedDb -inMemory"
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"

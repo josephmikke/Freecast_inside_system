@@ -1,0 +1,50 @@
+.form_field_select .form_field_select__control,
+.form_field_select .form_field_select__menu,
+.form_field_select .form_field_select__option {
+    @apply bg-gray-dark;
+    @apply border-none;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    text-align: left !important;
+}
+
+.form_field_select_light .form_field_select_light__control,
+.form_field_select_light .form_field_select_light__menu,
+.form_field_select_light .form_field_select_light__option {
+    @apply bg-gray-light;
+    @apply border-none;
+}
+
+.form_field_select .form_field_select__control {
+    @apply rounded-xl;
+    @apply min-h-[44px];
+}
+
+.form_field_select .form_field_select__multi-value {
+    @apply bg-blue;
+    @apply rounded-xl;
+}
+
+.form_field_select .form_field_select__indicator-separator,
+.form_field_select .form_field_select__clear-indicator {
+    display: none;
+}
+
+.form_field_select .form_field_select__value-container {
+    justify-content: flex-start;
+}
+
+.form_field_select__multi-value__remove:hover {
+    @apply bg-red;
+    @apply rounded-xl;
+}
+
+.form_field_select__input {
+    color: white !important;
+    font-size: 16px !important;
+    font-weight: normal !important;
+}
+
+.form_field_select__single-value {
+    color: lightgray !important;
+}

@@ -1,0 +1,77 @@
+recordingHandler:
+  handler: routes/npvr/recordingHandler/index.default
+  timeout: 600
+  events:
+    - eventBridge:
+        pattern:
+          source:
+            - aws.mediapackage
+          detail-type:
+            - MediaPackage HarvestJob Notification
+          detail:
+            "harvest_job":
+              status:
+                - SUCCEEDED
+                - FAILED
+
+recordingScheduler:
+  handler: routes/npvr/recordingScheduler/index.default
+  events:
+    - http:
+        path: 'npvr'
+        cors: true
+        method: post
+        private: true
+
+getUserRecordings:
+  handler: routes/npvr/getUserRecordings/index.default
+  events:
+    - http:
+        path: 'npvr/{username}/recordings'
+        cors: true
+        method: get
+        private: true
+        request:
+          parameters:
+            paths:
+              username: true
+
+getUserRecording:
+  handler: routes/npvr/getUserRecording/index.default
+  events:
+    - http:
+        path: 'npvr/{username}/recordings/{id}'
+        cors: true
+        method: get
+        private: true
+        request:
+          parameters:
+            paths:
+              username: true
+              id: true
+
+deleteUserRecordings:
+  handler: routes/npvr/deleteUserRecordings/index.default
+  events:
+    - http:
+        path: 'npvr/{username}/recordings'
+        cors: true
+        method: post
+        private: true
+        request:
+          parameters:
+            paths:
+              username: true
+
+deleteRecordings:
+  handler: routes/npvr/deleteRecording/index.default
+  events:
+    - http:
+        path: 'npvr/recordings/{id}'
+        cors: true
+        method: delete
+        private: true
+        request:
+          parameters:
+            paths:
+              id: true

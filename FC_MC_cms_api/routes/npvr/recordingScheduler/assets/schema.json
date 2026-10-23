@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "required": [
+        "channel",
+        "program",
+        "username"
+      ],
+      "properties": {
+        "program": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
+

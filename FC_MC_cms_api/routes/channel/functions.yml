@@ -1,0 +1,64 @@
+addChannel:
+  handler: routes/channel/addChannel/index.default
+  events:
+    - http:
+        path: 'channels'
+        cors: true
+        method: post
+        private: true
+getChannel:
+  handler: routes/channel/getChannel/index.default
+  events:
+    - http:
+        path: 'channels/{id}'
+        cors: true
+        method: get
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+getChannels:
+  handler: routes/channel/getChannels/index.default
+  events:
+    - http:
+        path: 'channels'
+        cors: true
+        method: get
+        request:
+          parameters:
+            querystrings:
+              active: false
+              categories: false
+              packages: false
+              platforms: false
+              providers: false
+              search: false
+              sort: false
+              limit: false
+              nextToken: false
+        private: true
+deleteChannel:
+  handler: routes/channel/deleteChannel/index.default
+  events:
+    - http:
+        path: 'channels/{id}'
+        cors: true
+        method: delete
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+updateChannel:
+  handler: routes/channel/updateChannel/index.default
+  events:
+    - http:
+        path: 'channels/{id}'
+        cors: true
+        method: patch
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true

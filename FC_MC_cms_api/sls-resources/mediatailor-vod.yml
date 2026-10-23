@@ -1,0 +1,21 @@
+Resources:
+  mediaTailorConfiguration:
+    Type: 'AWS::MediaTailor::PlaybackConfiguration'
+    Properties:
+      Name: ${sls:stage}-vod
+      VideoContentSourceUrl: !GetAtt packagingGroup.DomainName
+      AdDecisionServerUrl: "https://tv.springserve.com/vast/[player_params.vastId]?w=1920&h=1080&cb=[player_params.cachebuster]&ip=[session.client_ip]&ua=[session.user_agent]&pod_max_dur=[player_params.pod_max_dur]&pod_ad_slots=[player_params.pod_ad_slots]&app_bundle=[player_params.app_bundle]&app_name=[player_params.app_name]&app_store_url=[player_params.app_store_url]&did=[session.id]&us_privacy=[player_params.us_privacy]"
+      LivePreRollConfiguration:
+        AdDecisionServerUrl: "https://tv.springserve.com/vast/[player_params.preroll]"
+      Tags:
+        - Key: map-migrated
+          Value: d-server-03ldkhdk7ade4y
+  mediaTailorCustomResource:
+    Type: 'Custom::MediaTailor'
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      ServiceToken: !GetAtt MediaTailorCustomResourceFnLambdaFunction.Arn
+      Region: !Ref AWS::Region
+      SegmentCDN: !GetAtt vodDistribution.DomainName
+      AdCDN: !GetAtt vodDistribution.DomainName

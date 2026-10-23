@@ -1,0 +1,73 @@
+import { LiveChannel, Mode } from './interfaces';
+
+export const MEDIATAILOR_ADS_URL = 'https://obs.ads.ottera.tv/v1/s2s-hb?site_id=10944&app_bundle=[player_params.app_bundle]&did=[player_params.did]&format=vast&pod_duration=[POD_DURATION]&min_ad_duration=6&max_ad_duration=120&cb=[avail.random]&ip=[session.client_ip]&ua=[session.user_agent]&player_height=[player_params.player_height]&player_width=[player_params.player_width]&is_lat=[player_params.is_lat]&app_category=[player_params.app_category]&app_domain=[player_params.app_domain]&app_name=[player_params.app_name]&app_store_url=[player_params.app_store_url]&app_version=[player_params.app_version]&content_cat=[player_params.content_cat]&content_channel=[player_params.content_channel]&content_context=[player_params.content_context]&content_dist_id=[player_params.content_dist_id]&content_dist_name=[player_params.content_dist_name]&content_episode=[player_params.content_episode]&content_genre=[player_params.content_genre]&content_id=[player_params.content_id]&content_keywords=[player_params.content_keywords]&content_language=[player_params.content_language]&content_length=[player_params.content_length]&content_network=[player_params.content_network]&content_prodqual=[player_params.content_prodqual]&content_producer_id=[player_params.content_producer_id]&content_producer=[player_params.content_producer]&content_rating=[player_params.content_rating]&content_season=[player_params.content_season]&content_series=[player_params.content_series]&content_title=[player_params.content_title]&buyeruid=[player_params.buyeruid]&us_privacy=[player_params.us_privacy]&consent=[player_params.consent]&coppa=[player_params.coppa]&device_language=[player_params.device_language]&device_type=[player_params.device_type]&gdpr=[player_params.gdpr]&gender=[player_params.gender]&genre_id=[player_params.genre_id]&ifa_type=[player_params.ifa_type]&livestream=[player_params.livestream]&max_bitrate=[player_params.max_bitrate]&min_bitrate=[player_params.min_bitrate]&position=[player_params.position]&preferred_language=[player_params.preferred_language]&rights_holder=[player_params.rights_holder]&ssai_enabled=[player_params.ssai_enabled]&ssai_vendor=[player_params.ssai_vendor]&session_id=[session.id]&schain=[player_params.schain]&yob=[player_params.yob]';
+export const CERTIFICATE_ARN_DEV = 'arn:aws:acm:us-west-2:199718138082:certificate/170595f6-9645-401b-a0dc-4171fc25b908';
+export const CERTIFICATE_ARN_PROD = 'arn:aws:acm:us-east-1:199718138082:certificate/a836cc86-3451-4dcf-9074-2da31b724456';
+export const MAGIC_NUMBER = 25; // Number of channels deployed previously
+
+export const LIVE_CHANNELS: LiveChannel[] = [
+  // { name: 'United_Teleport_Mis_Canales_A3Series', az: 0, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_Antenna_3', az: 1, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_Atres_Cine', az: 2, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_Canal_Sur', az: 0, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_Caracol', az: 1, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_Estrella_TV', az: 2, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_estudio5', az: 0, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_Gol_TV', az: 1, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_HOLA_TV', az: 2, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_Ingles_Para_Todos', az: 0, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_Multimedios', az: 1, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_NTN-24', az: 2, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_Nuestra_Tele', az: 0, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_RCN_Novelas', az: 1, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_Tarima', az: 2, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_Teleformula', az: 0, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_Tigo_Sports', az: 1, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_TV_Consciente', az: 2, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_TVV', az: 0, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_TyC_Sports', az: 1, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_Video_Rola', az: 2, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_Viendo_Movies', az: 0, mode: Mode.SRT_LISTENER },
+  // { name: 'United_Teleport_Mis_Canales_Cinema_Dinamita', az: 1, mode: Mode.SRT_LISTENER },
+  // { name: 'Inelsit_Mis_Canales_PX_Sports', az: 2, mode: Mode.SRT_LISTENER },
+  // { name: 'Inelsit_Mis_Canales_VePlus', az: 0, mode: Mode.SRT_LISTENER },
+  { name: 'vubiquity_Value_FETV', az: 0, mode: Mode.SRT_LISTENER },
+  { name: 'vubiquity_Value_INSP', az: 1, mode: Mode.SRT_LISTENER },
+  { name: 'vubiquity_Value_AXS_TV', az: 2, mode: Mode.SRT_LISTENER },
+  { name: 'vubiquity_Value_HDNET', az: 0, mode: Mode.SRT_LISTENER },
+  { name: 'vubiquity_Value_BabyFirst_TV', az: 1, mode: Mode.SRT_LISTENER },
+  { name: 'vubiquity_Value_Outdoor_Channel_HD', az: 2, mode: Mode.SRT_LISTENER },
+  { name: 'vubiquity_Value_Sportsman_Channel_HD', az: 0, mode: Mode.SRT_LISTENER },
+  { name: 'vubiquity_Value_World_Fishing_Network', az: 1, mode: Mode.SRT_LISTENER },
+  { name: 'vubiquity_Value_Reelz', az: 2, mode: Mode.SRT_LISTENER },
+  { name: 'vubiquity_Value_Cowboy_Channel', az: 0, mode: Mode.SRT_LISTENER },
+  { name: 'vubiquity_Value_RFDTV', az: 1, mode: Mode.SRT_LISTENER },
+  {
+    name: 'comcast_Value_UP_TV',
+    az: 2,
+    mode: Mode.SRT_CALLER,
+    sourceListenerAddress: 'edge-cts-cd.cmc-10p.comcast.net',
+    sourceListenerPort: 5002,
+  },
+  { name: 'vubiquity_Value_SONYMOVIES', az: 0, mode: Mode.SRT_LISTENER },
+  { name: 'vubiquity_Value_GSN', az: 1, mode: Mode.SRT_LISTENER },
+  { name: 'vubiquity_Value_Get_TV', az: 2, mode: Mode.SRT_LISTENER },
+  {
+    name: 'vubiquity_Value_Weathernation', az: 0, url: 'http://stream.prstaffiliate.com/HLS/FreeCast.m3u8', mode: Mode.HLS,
+  },
+  { name: 'vubiquity_Value_Family_Movie_Classics', az: 1, mode: Mode.SRT_LISTENER },
+  {
+    name: 'amagi_Value_curiosity',
+    az: 2,
+    mode: Mode.SRT_CALLER,
+    sourceListenerAddress: '52.7.76.140',
+    sourceListenerPort: 9000,
+  },
+  {
+    name: 'pursuit_Value_Pursuit',
+    az: 0,
+    mode: Mode.SRT_CALLER,
+    sourceListenerAddress: '44.198.13.69',
+    sourceListenerPort: 6030,
+  },
+];

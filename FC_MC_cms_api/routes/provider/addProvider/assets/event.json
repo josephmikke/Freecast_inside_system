@@ -1,0 +1,9 @@
+{
+  "name": "Local Now",
+  "extId": "local:local-now",
+  "configuration": {},
+  "type": "CHANNELS",
+  "subscription": true,
+  "format": "INTEGER"
+}
+

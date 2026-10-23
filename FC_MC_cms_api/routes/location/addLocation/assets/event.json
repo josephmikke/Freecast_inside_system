@@ -1,0 +1,6 @@
+{
+  "name": "United States",
+  "extId": "value",
+  "type": "COUNTRY",
+  "packages": ["1", "2"]
+}

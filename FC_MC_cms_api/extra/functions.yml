@@ -1,0 +1,3 @@
+# Split across two Serverless stacks (CloudFormation 500 resource limit):
+#   extra/functions-main.yml    → serverless.yml
+#   extra/functions-workers.yml → serverless-workers.yml

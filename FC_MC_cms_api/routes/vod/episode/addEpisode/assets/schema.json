@@ -1,0 +1,106 @@
+{
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "required": [
+        "name",
+        "slug",
+        "season",
+        "number",
+        "rating",
+        "availableDate",
+        "expirationDate",
+        "originalAirDate",
+        "thumbnail",
+        "streams",
+        "seriesId"
+      ],
+      "properties": {
+        "seriesId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "extId": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "rating": {
+          "type": "string"
+        },
+        "season": {
+          "type": "string"
+        },
+        "number": {
+          "type": "number"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "contentData": {
+          "type": "string"
+        },
+        "availableDate": {
+          "type": "string"
+        },
+        "expirationDate": {
+          "type": "string"
+        },
+        "originalAirDate": {
+          "type": "string"
+        },
+        "thumbnail": {
+          "type": "string"
+        },
+        "alternateThumbnail": {
+          "type": "string"
+        },
+        "streams": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "extId": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "format": {
+                "type": "string"
+              },
+              "data": {
+                "type": "string"
+              },
+              "daiParams": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "name",
+              "type",
+              "format",
+              "data",
+              "daiParams"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+

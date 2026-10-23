@@ -1,0 +1,84 @@
+addSeries:
+  handler: routes/vod/series/addSeries/index.default
+  events:
+    - http:
+        path: 'vod/series'
+        cors: true
+        method: post
+        private: true
+getSeries:
+  handler: routes/vod/series/getSeries/index.default
+  events:
+    - http:
+        path: 'vod/series/{id}'
+        cors: true
+        method: get
+        private: true
+        request:
+          parameters:
+            paths:
+              id: true
+getEpisodes:
+  handler: routes/vod/series/getEpisodes/index.default
+  events:
+    - http:
+        path: 'vod/series/{id}/episodes'
+        cors: true
+        method: get
+        private: true
+        request:
+          parameters:
+            paths:
+              id: true
+getEpisode:
+  handler: routes/vod/series/getEpisode/index.default
+  events:
+    - http:
+        path: 'vod/series/{id}/episodes/{episodeId}'
+        cors: true
+        method: get
+        private: true
+getAllSeries:
+  handler: routes/vod/series/getAllSeries/index.default
+  events:
+    - http:
+        path: 'vod/series'
+        cors: true
+        method: get
+        private: true
+        request:
+          parameters:
+            querystrings:
+              active: false
+              categories: false
+              packages: false
+              platforms: false
+              providers: false
+              search: false
+              sort: false
+              limit: false
+              nextToken: false
+deleteSeries:
+  handler: routes/vod/series/deleteSeries/index.default
+  events:
+    - http:
+        path: 'vod/series/{id}'
+        cors: true
+        method: delete
+        private: true
+        request:
+          parameters:
+            paths:
+              id: true
+updateSeries:
+  handler: routes/vod/series/updateSeries/index.default
+  events:
+    - http:
+        path: 'vod/series/{id}'
+        cors: true
+        method: patch
+        private: true
+        request:
+          parameters:
+            paths:
+              id: true

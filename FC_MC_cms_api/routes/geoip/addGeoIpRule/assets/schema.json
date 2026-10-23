@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "required": [
+        "name",
+        "description",
+        "policyType",
+        "ruleType",
+        "value"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[\\w\\-]+$"
+        },
+        "description": {
+          "type": "string"
+        },
+        "policyType": {
+          "enum": [
+            "ALLOW",
+            "BLOCK"
+          ]
+        },
+        "ruleType": {
+          "enum": [
+            "CIDR",
+            "USER_AGENT",
+            "LOCATION"
+          ]
+        },
+        "value": {
+          "type": "string"
+        },
+        "packages": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

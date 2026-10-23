@@ -1,0 +1,12 @@
+{
+  "name": "Value Channels",
+  "extId": "value",
+  "description": "Value Channels",
+  "price": "6.99",
+  "type": "INTERNAL",
+  "revenueModel": "PAID",
+  "default": false,
+  "thumbnail": "",
+  "platforms": ["1", "2"]
+}
+

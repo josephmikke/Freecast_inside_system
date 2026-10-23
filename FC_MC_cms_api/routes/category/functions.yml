@@ -1,0 +1,53 @@
+addCategory:
+  handler: routes/category/addCategory/index.default
+  events:
+    - http:
+        path: 'categories'
+        cors: true
+        method: post
+        private: true
+getCategories:
+  handler: routes/category/getCategories/index.default
+  events:
+    - http:
+        path: 'categories'
+        cors: true
+        method: get
+        private: true
+updateCategory:
+  handler: routes/category/updateCategory/index.default
+  events:
+    - http:
+        path: 'categories/{id}'
+        cors: true
+        method: patch
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true
+updateCategoryWeight:
+  handler: routes/category/updateCategoryWeight/index.default
+  events:
+    - http:
+        path: 'categories/{id}/weight/{index}'
+        cors: true
+        method: get
+        request:
+          parameters:
+            paths:
+              id: true
+              index: true
+        private: true
+deleteCategory:
+  handler: routes/category/deleteCategory/index.default
+  events:
+    - http:
+        path: 'categories/{id}'
+        cors: true
+        method: delete
+        request:
+          parameters:
+            paths:
+              id: true
+        private: true

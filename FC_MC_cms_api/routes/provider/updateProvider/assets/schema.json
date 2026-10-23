@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "extId": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "CHANNELS",
+              "VOD"
+            ]
+          }
+        },
+        "mtSlug": {
+          "type": "string"
+        },
+        "hlsMtSlug": {
+          "type": "string"
+        },
+        "aidSlug": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
+

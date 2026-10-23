@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:media="http://search.yahoo.com/mrss/" xmlns:xumo="http://www.xumo.com/rss/extensions/" xmlns:dcterms="http://purl.org/dc/terms/" version="2.0">
+  <channel>
+    <item>
+      <guid isPermaLink="false">RCSC</guid>
+      <xumo:episodic type="series" />
+      <title>Cheating Spouses Caught on Tape</title>
+      <description>Two-timing spouses fabricate outlandish stories to save their hides.</description>
+      <pubDate>2024</pubDate>
+      <media:thumbnail medium="image" width="1080" height="1920" type="image/jpg" url="https://reelz-mrss.s3.amazonaws.com/RCSC.jpg" />
+      <media:keywords>cheating spouses, infidelity, caught, captured, surveillance footage</media:keywords>
+    </item>
+    <item>
+      <guid isPermaLink="false">RCSC101</guid>
+      <media:title type="plain">101</media:title>
+      <media:description>Two-timing spouses fabricate outlandish stories to save their hides.
+      </media:description>
+      <pubDate>Monday, 13 May 2024</pubDate>
+      <media:category scheme="https://www.xumo.com">Documentary</media:category>
+      <media:keywords>cheating spouses, infidelity, caught, captured, surveillance footage</media:keywords>
+      <media:content medium="video" duration="2639" bitrate="38732" height="1080" width="1920" url="https://reelz-mrss.s3.amazonaws.com/RCSC101.mp4" />
+      <media:thumbnail medium="image" height="1080" width="1920" type="image/jpg" url="https://reelz-mrss.s3.amazonaws.com/RCSC101_episode_thumbnail.jpg" />
+      <media:group>
+        <media:subTitle type="text/webvtt" lang="en-US" href="https://reelz-mrss.s3.amazonaws.com/RCSC101.en.vtt" />
+      </media:group>
+      <media:rating scheme="urn:v-chip">TV-14</media:rating>
+      <dcterms:valid>start=2025-03-01T00:00:00.000+00:00;end=2026-11-30T00:00:00.000+00:00;scheme=W3C-DTF</dcterms:valid>
+      <xumo:cuePoints>750,1210,1685,2211,2552</xumo:cuePoints>
+      <xumo:episodic type="episode">
+        <xumo:seriesId>RCSC</xumo:seriesId>
+        <xumo:seasonNum>1</xumo:seasonNum>
+        <xumo:episodeNum>1</xumo:episodeNum>
+      </xumo:episodic>
+    </item>
+    <item>
+      <guid isPermaLink="false">RCSC102</guid>
+      <media:title type="plain">102</media:title>
+      <media:description>Videotape captures the infidelities of double-crossing husbands and wives.
+      </media:description>
+      <pubDate>Monday, 13 May 2024</pubDate>
+      <media:category scheme="https://www.xumo.com">Documentary</media:category>
+      <media:keywords>cheating spouses, infidelity, caught, captured, surveillance footage</media:keywords>
+      <media:content medium="video" duration="2639" bitrate="38732" height="1080" width="1920" url="https://reelz-mrss.s3.amazonaws.com/RCSC102.mp4" />
+      <media:thumbnail medium="image" height="1080" width="1920" type="image/jpg" url="https://reelz-mrss.s3.amazonaws.com/RCSC102_episode_thumbnail.jpg" />
+      <media:group>
+        <media:subTitle type="text/webvtt" lang="en-US" href="https://reelz-mrss.s3.amazonaws.com/RCSC102.en.vtt" />
+      </media:group>
+      <media:rating scheme="urn:v-chip">TV-14</media:rating>
+      <dcterms:valid>start=2025-03-01T00:00:00.000+00:00;end=2026-11-30T00:00:00.000+00:00;scheme=W3C-DTF</dcterms:valid>
+      <xumo:cuePoints>632,1195,1618,2085,2377</xumo:cuePoints>
+      <xumo:episodic type="episode">
+        <xumo:seriesId>RCSC</xumo:seriesId>
+        <xumo:seasonNum>1</xumo:seasonNum>
+        <xumo:episodeNum>2</xumo:episodeNum>
+      </xumo:episodic>
+    </item>
+    <item>
+      <guid isPermaLink="false">RMSR004</guid>
+      <media:title type="plain">4</media:title>
+      <media:description>Avoiding death while strapped upside-down in the air and being set on fire.
+      </media:description>
+      <pubDate>Monday, 25 Mar 2024</pubDate>
+      <media:category scheme="https://www.xumo.com">Reality</media:category>
+      <media:keywords>Masked magicians, illusions, magic, secrets revealed</media:keywords>
+      <media:content medium="video" duration="2639" bitrate="38732" height="1080" width="1920" url="https://reelz-mrss.s3.amazonaws.com/RMSR004.mp4" />
+      <media:thumbnail medium="image" height="1080" width="1920" type="image/jpg" url="https://reelz-mrss.s3.amazonaws.com/RMSR004_episode_thumbnail.jpg" />
+      <media:group>
+        <media:subTitle type="text/webvtt" lang="en-US" href="https://reelz-mrss.s3.amazonaws.com/RMSR004.en.vtt" />
+      </media:group>
+      <media:rating scheme="urn:v-chip">TV-PG</media:rating>
+      <dcterms:valid>start=2025-03-01T00:00:00.000+00:00;end=2026-11-30T00:00:00.000+00:00;scheme=W3C-DTF</dcterms:valid>
+      <xumo:cuePoints>814,1344,1875,2363</xumo:cuePoints>
+      <xumo:episodic type="episode">
+        <xumo:seriesId>RMSR</xumo:seriesId>
+        <xumo:seasonNum>0</xumo:seasonNum>
+        <xumo:episodeNum>4</xumo:episodeNum>
+      </xumo:episodic>
+    </item>
+    <item>
+      <guid isPermaLink="false">RMSR005</guid>
+      <media:title type="plain">5</media:title>
+      <media:description>A mid-body slice; levitating a table; making a dump truck disappear.
+      </media:description>
+      <pubDate>Monday, 25 Mar 2024</pubDate>
+      <media:category scheme="https://www.xumo.com">Reality</media:category>
+      <media:keywords>Masked magicians, illusions, magic, secrets revealed</media:keywords>
+      <media:content medium="video" duration="2639" bitrate="38732" height="1080" width="1920" url="https://reelz-mrss.s3.amazonaws.com/RMSR005.mp4" />
+      <media:thumbnail medium="image" height="1080" width="1920" type="image/jpg" url="https://reelz-mrss.s3.amazonaws.com/RMSR005_episode_thumbnail.jpg" />
+      <media:group>
+        <media:subTitle type="text/webvtt" lang="en-US" href="https://reelz-mrss.s3.amazonaws.com/RMSR005.en.vtt" />
+      </media:group>
+      <media:rating scheme="urn:v-chip">TV-PG</media:rating>
+      <dcterms:valid>start=2025-03-01T00:00:00.000+00:00;end=2026-11-30T00:00:00.000+00:00;scheme=W3C-DTF</dcterms:valid>
+      <xumo:cuePoints>512,995,1528,2035,2317</xumo:cuePoints>
+      <xumo:episodic type="episode">
+        <xumo:seriesId>RMSR</xumo:seriesId>
+        <xumo:seasonNum>0</xumo:seasonNum>
+        <xumo:episodeNum>5</xumo:episodeNum>
+      </xumo:episodic>
+    </item>
+    <item>
+      <guid isPermaLink="false">RMSR101</guid>
+      <media:title type="plain">1</media:title>
+      <media:description>A sneak preview starring the Masked Magician and WWE Divas Eve and Marie as his assistants.
+      </media:description>
+      <pubDate>Monday, 25 Mar 2024</pubDate>
+      <media:category scheme="https://www.xumo.com">Reality</media:category>
+      <media:keywords>Masked magicians, illusions, magic, secrets revealed</media:keywords>
+      <media:content medium="video" duration="2639" bitrate="38732" height="1080" width="1920" url="https://reelz-mrss.s3.amazonaws.com/RMSR101.mp4" />
+      <media:thumbnail medium="image" height="1080" width="1920" type="image/jpg" url="https://reelz-mrss.s3.amazonaws.com/RMSR101_episode_thumbnail.jpg" />
+      <media:group>
+        <media:subTitle type="text/webvtt" lang="en-US" href="https://reelz-mrss.s3.amazonaws.com/RMSR101.en.vtt" />
+      </media:group>
+      <media:rating scheme="urn:v-chip">TV-PG</media:rating>
+      <dcterms:valid>start=2025-03-01T00:00:00.000+00:00;end=2026-11-30T00:00:00.000+00:00;scheme=W3C-DTF</dcterms:valid>
+      <xumo:cuePoints>643,1081,1523,1834,2277</xumo:cuePoints>
+      <xumo:episodic type="episode">
+        <xumo:seriesId>RMSR</xumo:seriesId>
+        <xumo:seasonNum>1</xumo:seasonNum>
+        <xumo:episodeNum>1</xumo:episodeNum>
+      </xumo:episodic>
+    </item>
+    <item>
+      <guid isPermaLink="false">ROPL339</guid>
+      <media:title type="plain">Car Tracker Pursuit</media:title>
+      <media:description>Monroe County, LA officers use a tracking device; Humboldt County, CA try to serve a warrant.</media:description>
+      <pubDate>Friday, 06 Dec 2024</pubDate>
+      <media:category scheme="https://www.xumo.com">Documentary</media:category>
+      <media:keywords>Live, Police, Patrol, Dan Abrams, Sean Larkin, Curtis Wilson, On Patrol</media:keywords>
+      <media:content medium="video" duration="2639" bitrate="38732" height="1080" width="1920" url="https://reelz-mrss.s3.amazonaws.com/ROPL339.mp4" />
+      <media:thumbnail medium="image" height="1080" width="1920" type="image/jpg" url="https://reelz-mrss.s3.amazonaws.com/ROPL339_episode_thumbnail.jpg" />
+      <media:group>
+        <media:subTitle type="text/webvtt" lang="en-US" href="https://reelz-mrss.s3.amazonaws.com/ROPL339.en.vtt" />
+      </media:group>
+      <media:rating scheme="urn:v-chip">TV-14</media:rating>
+      <dcterms:valid>start=2025-03-01T00:00:00.000+00:00;end=2033-12-31T00:00:00.000+00:00;scheme=W3C-DTF</dcterms:valid>
+      <xumo:cuePoints>1274,2155,2791,3682,4509,5214,6067,6587,7082,7484,7740</xumo:cuePoints>
+      <xumo:episodic type="episode">
+        <xumo:seriesId>ROPL</xumo:seriesId>
+        <xumo:seasonNum>3</xumo:seasonNum>
+        <xumo:episodeNum>39</xumo:episodeNum>
+      </xumo:episodic>
+    </item>
+    <item>
+      <guid isPermaLink="false">ROPL340</guid>
+      <media:title type="plain">Road Rage Violence</media:title>
+      <media:description>Toledo, Ohio, officers respond to a violent road rage incident.</media:description>
+      <pubDate>Saturday, 07 Dec 2024</pubDate>
+      <media:category scheme="https://www.xumo.com">Documentary</media:category>
+      <media:keywords>Live, Police, Patrol, Dan Abrams, Sean Larkin, Curtis Wilson, On Patrol</media:keywords>
+      <media:content medium="video" duration="2639" bitrate="38732" height="1080" width="1920" url="https://reelz-mrss.s3.amazonaws.com/ROPL340.mp4" />
+      <media:thumbnail medium="image" height="1080" width="1920" type="image/jpg" url="https://reelz-mrss.s3.amazonaws.com/ROPL340_episode_thumbnail.jpg" />
+      <media:group>
+        <media:subTitle type="text/webvtt" lang="en-US" href="https://reelz-mrss.s3.amazonaws.com/ROPL340.en.vtt" />
+      </media:group>
+      <media:rating scheme="urn:v-chip">TV-14</media:rating>
+      <dcterms:valid>start=2025-03-01T00:00:00.000+00:00;end=2033-12-31T00:00:00.000+00:00;scheme=W3C-DTF</dcterms:valid>
+      <xumo:cuePoints>1297,2068,2642,3543,4431,5399,6079,6626,7041,7490,7750</xumo:cuePoints>
+      <xumo:episodic type="episode">
+        <xumo:seriesId>ROPL</xumo:seriesId>
+        <xumo:seasonNum>3</xumo:seasonNum>
+        <xumo:episodeNum>40</xumo:episodeNum>
+      </xumo:episodic>
+    </item>
+    <item>
+      <guid isPermaLink="false">ROPL341</guid>
+      <media:title type="plain">Security Camera Confirmation</media:title>
+      <media:description>Officers in Berkeley County, S.C. use security camera footage to confirm a suspect's actions.</media:description>
+      <pubDate>Friday, 13 Dec 2024</pubDate>
+      <media:category scheme="https://www.xumo.com">Documentary</media:category>
+      <media:keywords>Live, Police, Patrol, Dan Abrams, Sean Larkin, Curtis Wilson, On Patrol</media:keywords>
+      <media:content medium="video" duration="2639" bitrate="38732" height="1080" width="1920" url="https://reelz-mrss.s3.amazonaws.com/ROPL341.mp4" />
+      <media:thumbnail medium="image" height="1080" width="1920" type="image/jpg" url="https://reelz-mrss.s3.amazonaws.com/ROPL341_episode_thumbnail.jpg" />
+      <media:group>
+        <media:subTitle type="text/webvtt" lang="en-US" href="https://reelz-mrss.s3.amazonaws.com/ROPL341.en.vtt" />
+      </media:group>
+      <media:rating scheme="urn:v-chip">TV-14</media:rating>
+      <dcterms:valid>start=2025-03-01T00:00:00.000+00:00;end=2033-12-31T00:00:00.000+00:00;scheme=W3C-DTF</dcterms:valid>
+      <xumo:cuePoints>1315,2097,2743,3619,4492,5203,6265,6788,7211,7521,7713</xumo:cuePoints>
+      <xumo:episodic type="episode">
+        <xumo:seriesId>ROPL</xumo:seriesId>
+        <xumo:seasonNum>3</xumo:seasonNum>
+        <xumo:episodeNum>41</xumo:episodeNum>
+      </xumo:episodic>
+    </item>
+    <item>
+      <guid isPermaLink="false">ROPL342</guid>
+      <media:title type="plain">Domestic Homicide</media:title>
+      <media:description>Richland County, S.C. officers apprehend a man with a warrant for kidnapping.</media:description>
+      <pubDate>Saturday, 14 Dec 2024</pubDate>
+      <media:category scheme="https://www.xumo.com">Documentary</media:category>
+      <media:keywords>Live, Police, Patrol, Dan Abrams, Sean Larkin, Curtis Wilson, On Patrol</media:keywords>
+      <media:content medium="video" duration="2639" bitrate="38732" height="1080" width="1920" url="https://reelz-mrss.s3.amazonaws.com/ROPL342.mp4" />
+      <media:thumbnail medium="image" height="1080" width="1920" type="image/jpg" url="https://reelz-mrss.s3.amazonaws.com/ROPL342_episode_thumbnail.jpg" />
+      <media:group>
+        <media:subTitle type="text/webvtt" lang="en-US" href="https://reelz-mrss.s3.amazonaws.com/ROPL342.en.vtt" />
+      </media:group>
+      <media:rating scheme="urn:v-chip">TV-14</media:rating>
+      <dcterms:valid>start=2025-03-01T00:00:00.000+00:00;end=2033-12-31T00:00:00.000+00:00;scheme=W3C-DTF</dcterms:valid>
+      <xumo:cuePoints>1097,1858,2614,3547,4322,5121,6026,6500,6993,7434,7751</xumo:cuePoints>
+      <xumo:episodic type="episode">
+        <xumo:seriesId>ROPL</xumo:seriesId>
+        <xumo:seasonNum>3</xumo:seasonNum>
+        <xumo:episodeNum>42</xumo:episodeNum>
+      </xumo:episodic>
+    </item>
+    <item>
+      <guid isPermaLink="false">ROPL343</guid>
+      <media:title type="plain">Vehicle on Train Tracks</media:title>
+      <media:description>St. Lucie County, FL officers rush to the scene of a car stuck on train tracks.</media:description>
+      <pubDate>Friday, 20 Dec 2024</pubDate>
+      <media:category scheme="https://www.xumo.com">Documentary</media:category>
+      <media:keywords>Live, Police, Patrol, Dan Abrams, Sean Larkin, Curtis Wilson, On Patrol</media:keywords>
+      <media:content medium="video" duration="2639" bitrate="38732" height="1080" width="1920" url="https://reelz-mrss.s3.amazonaws.com/ROPL343.mp4" />
+      <media:thumbnail medium="image" height="1080" width="1920" type="image/jpg" url="https://reelz-mrss.s3.amazonaws.com/ROPL343_episode_thumbnail.jpg" />
+      <media:group>
+        <media:subTitle type="text/webvtt" lang="en-US" href="https://reelz-mrss.s3.amazonaws.com/ROPL343.en.vtt" />
+      </media:group>
+      <media:rating scheme="urn:v-chip">TV-14</media:rating>
+      <dcterms:valid>start=2025-03-01T00:00:00.000+00:00;end=2033-12-31T00:00:00.000+00:00;scheme=W3C-DTF</dcterms:valid>
+      <xumo:cuePoints>1160,1822,2657,3635,4458,5178,5982,6480,6990,7398,7716</xumo:cuePoints>
+      <xumo:episodic type="episode">
+        <xumo:seriesId>ROPL</xumo:seriesId>
+        <xumo:seasonNum>3</xumo:seasonNum>
+        <xumo:episodeNum>43</xumo:episodeNum>
+      </xumo:episodic>
+    </item>
+    <item>
+      <guid isPermaLink="false">ROPL344</guid>
+      <media:title type="plain">Stabbing Suspect Search</media:title>
+      <media:description>Knox County, TN officers search for a suspect linked to a stabbing.</media:description>
+      <pubDate>Saturday, 21 Dec 2024</pubDate>
+      <media:category scheme="https://www.xumo.com">Documentary</media:category>
+      <media:keywords>Live, Police, Patrol, Dan Abrams, Sean Larkin, Curtis Wilson, On Patrol</media:keywords>
+      <media:content medium="video" duration="2639" bitrate="38732" height="1080" width="1920" url="https://reelz-mrss.s3.amazonaws.com/ROPL344.mp4" />
+      <media:thumbnail medium="image" height="1080" width="1920" type="image/jpg" url="https://reelz-mrss.s3.amazonaws.com/ROPL344_episode_thumbnail.jpg" />
+      <media:group>
+        <media:subTitle type="text/webvtt" lang="en-US" href="https://reelz-mrss.s3.amazonaws.com/ROPL344.en.vtt" />
+      </media:group>
+      <media:rating scheme="urn:v-chip">TV-14</media:rating>
+      <dcterms:valid>start=2025-03-01T00:00:00.000+00:00;end=2033-12-31T00:00:00.000+00:00;scheme=W3C-DTF</dcterms:valid>
+      <xumo:cuePoints>1127,1855,2790,3651,4448,5187,5895,6541,7036,7416,7753</xumo:cuePoints>
+      <xumo:episodic type="episode">
+        <xumo:seriesId>ROPL</xumo:seriesId>
+        <xumo:seasonNum>3</xumo:seasonNum>
+        <xumo:episodeNum>44</xumo:episodeNum>
+      </xumo:episodic>
+    </item>
+  </channel>
+</rss>

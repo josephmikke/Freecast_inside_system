@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "required": [],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "extId": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "rating": {
+          "type": "string"
+        },
+        "season": {
+          "type": "string"
+        },
+        "number": {
+          "type": "number"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "contentData": {
+          "type": "string"
+        },
+        "availableDate": {
+          "type": "string"
+        },
+        "expirationDate": {
+          "type": "string"
+        },
+        "originalAirDate": {
+          "type": "string"
+        },
+        "thumbnail": {
+          "type": "string"
+        },
+        "alternateThumbnail": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
+

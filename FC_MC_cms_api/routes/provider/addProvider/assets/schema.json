@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "required": [
+        "name",
+        "extId",
+        "configuration",
+        "type",
+        "subscription",
+        "format"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "extId": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "configuration": {
+          "type": "object"
+        },
+        "type": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "CHANNELS",
+              "VOD"
+            ]
+          }
+        },
+        "subscription": {
+          "type": "boolean"
+        },
+        "format": {
+          "enum": [
+            "INTEGER",
+            "DECIMAL",
+            "N/A"
+          ]
+        },
+        "mtSlug": {
+          "type": "string"
+        },
+        "hlsMtSlug": {
+          "type": "string"
+        },
+        "aidSlug": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
+

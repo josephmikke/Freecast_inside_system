@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "extId": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "mapping": {
+          "type": "object"
+        },
+        "templateType": {
+          "enum": [
+            "CSV",
+            "JSON",
+            "XML"
+          ]
+        }
+      }
+    }
+  }
+}
+

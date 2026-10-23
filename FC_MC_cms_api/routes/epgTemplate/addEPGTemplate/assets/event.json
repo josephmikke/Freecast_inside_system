@@ -1,0 +1,32 @@
+{
+  "name": "JSON",
+  "extId": "json-template",
+  "templateType": "JSON",
+  "mapping": {
+    "title": "$.title",
+    "ext_id": "$.ext_id",
+    "duration": {
+      "duration": "$.duration",
+      "duration_format": "seconds"
+    },
+    "end_time": {
+      "date": "$.end_time",
+      "time": "",
+      "method": "concat",
+      "date_format": "",
+      "time_format": ""
+    },
+    "epgs_list": "$[0]",
+    "thumbnail": "$.thumbnail",
+    "start_time": {
+      "date": "$.start_time",
+      "time": "",
+      "method": "concat",
+      "date_format": "",
+      "time_format": ""
+    },
+    "description": "$.description",
+    "epg_program": "$.epg_programs"
+  }
+}
+

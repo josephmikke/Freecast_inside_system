@@ -1,0 +1,13 @@
+# Lambdas referenced by CloudFormation resources in sls-resources/iam.yml (must stay in cms-api stack).
+npvrAutomaticRemover:
+  name: ${self:custom.cmsApiService}-${sls:stage}-npvr-automatic-remover
+  handler: extra/npvrAutomaticRemover/index.default
+  timeout: 900
+
+epgAnalyticsAutoFix:
+  name: ${self:custom.cmsApiService}-${sls:stage}-epg-analytics-auto-fix
+  handler: extra/epgAnalyticsAutoFix/index.default
+  timeout: 300
+  environment:
+    EPG_VALIDATION_LAMBDA_FUNCTION: ${self:custom.cmsApiService}-${sls:stage}-validateAllEPGs
+    SNS_TOPIC_ARN: arn:aws:sns:us-east-1:199718138082:EPG-Issue-Notification

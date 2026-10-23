@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "required": [
+        "name",
+        "extId",
+        "ingestionSchedule",
+        "timezone",
+        "ingestionUrl",
+        "epgTemplate",
+        "thumbnail"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "extId": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "ingestionSchedule": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "ingestionUrl": {
+          "type": "string"
+        },
+        "epgTemplate": {
+          "type": "string"
+        },
+        "thumbnail": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
+
